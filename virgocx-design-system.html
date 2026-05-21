@@ -208,6 +208,54 @@
     }
     .img-grid-3 img { width: 100%; display: block; }
 
+    /* ── OTHER PROJECTS ── */
+    .other-projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .other-project-card {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .other-project-card:hover { opacity: 0.75; }
+
+    .other-project-thumb {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      background: #f4f4f4;
+    }
+
+    .other-project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .other-project-card:hover .other-project-thumb img {
+      transform: scale(1.02);
+    }
+
+    .other-project-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .other-project-tags {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
     /* ── PROJECT CARDS ── */
     .project-card {
       display: block;
@@ -530,23 +578,9 @@
       <p class="section-body">By standardizing core components, the design system led to an estimated <strong>20–30% faster design-to-development handoff</strong> and helped new team members onboard more quickly. Building this system gave me a deeper understanding of how design decisions impact scalability, consistency, and cross-team collaboration — and reinforced that a design system is never truly complete, but an evolving foundation that grows with the product.</p>
     </div>
 
-    <hr class="divider" />
-
-    <!-- OTHER PROJECTS -->
-    <div class="section">
-      <p class="section-label">Check out my other projects</p>
-      <div class="img-grid-2">
-        <a href="gate-io.html" class="project-card">
-          <img src="images/Gate.io-cover.png" alt="Gate.io" style="width:100%; display:block; margin-bottom:0.75rem;" />
-          <div style="font-weight:700; font-size:0.95rem;">Gate.io</div>
-          <div style="font-size:0.85rem; color:#888;">UI/UX, Product Design, Research, Problem Analysis</div>
-        </a>
-        <a href="virgocx.html" class="project-card">
-          <img src="images/VirgoCX-Project Showcase-cover.png" alt="VirgoCX Design Collection" style="width:100%; display:block; margin-bottom:0.75rem;" />
-          <div style="font-weight:700; font-size:0.95rem;">VirgoCX Design Collection</div>
-          <div style="font-size:0.85rem; color:#888;">UI/UX, Product Design, Research, Graphic/Visual Design</div>
-        </a>
-      </div>
+    <!-- BACK TO WORK BOTTOM -->
+    <div style="padding: 3rem 0 1rem;">
+      <a href="index.html" class="back-link">← Back to Work</a>
     </div>
 
   </main>
