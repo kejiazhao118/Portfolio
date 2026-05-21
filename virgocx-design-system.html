@@ -217,6 +217,18 @@
     }
     .project-card:hover { opacity: 0.75; }
 
+    .section-list {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.25rem 1.5rem;
+      padding: 0;
+    }
+
+    .section-list li {
+      margin-bottom: 0.75rem;
+    }
+
     /* ── DIVIDER ── */
     .divider { border: none; border-top: 1px solid #e8e8e8; margin: 3rem 0; }
 
@@ -468,9 +480,13 @@
     <!-- CHALLENGES -->
     <div class="section">
       <p class="section-label">Challenges</p>
+      <p class="section-body">Behind the scenes, we had to navigate several challenges.</p>
       <img src="images/virgocx-ds/Challenges.png" alt="Challenges" class="img-full" />
-      <p class="section-body"><strong>Timeline:</strong> This was a long-term, ongoing project that I worked on alongside my core responsibilities. Because of that, progress was incremental, and each phase took longer than initially expected. We focused on steady, sustainable progress rather than rushing incomplete solutions.</p>
-      <p class="section-body"><strong>Technical constraints:</strong> While we prioritized foundations and core components first, there were still areas that required compromise. For example, ideally we wanted to use gradient buttons and possible animations, but developers pointed out that solid colors were more feasible at the time.</p>
+      <ul class="section-list">
+        <li><strong>Timeline:</strong> This was a long-term, ongoing project that I worked on alongside my core responsibilities. Because of that, progress was incremental, and each phase took longer than initially expected. We focused on steady, sustainable progress rather than rushing incomplete solutions.</li>
+        <li><strong>Technical constraints:</strong> While we prioritized foundations and core components first — most of which could be built and gradually implemented — there were still areas that required compromise. For example, ideally we wanted to use gradient buttons and possible animations, but developers pointed out that solid colors were more feasible at the time without heavy CSS overrides. We decided to use solid colors for now while keeping the long-term vision in mind.</li>
+        <li><strong>Trade-off decisions:</strong> As the system continues to grow and we move deeper into details like component states, interaction behaviors, do/don't examples etc., technical limitations naturally surface more often. These situations require ongoing collaboration and mutual agreement to balance design quality, feasibility, and scalability.</li>
+      </ul>
     </div>
 
 
@@ -480,6 +496,7 @@
     <div class="section">
       <p class="section-label">Collaboration</p>
       <img src="images/virgocx-ds/Collaboration.png" alt="Collaboration" class="img-full" />
+      <p class="section-body">I worked closely with the design lead to align on strategy, audit existing interface patterns, and define core principles. Throughout the process, I partnered with developers to understand technical constraints early and maintain a shared language around components and behaviors. Using shared tools like Figma, we reduced ambiguity, sped up handoffs, and kept design intent consistent with code implementation.</p>
     </div>
 
     <hr class="divider" />
@@ -488,6 +505,20 @@
     <div class="section">
       <p class="section-label">Next Steps</p>
       <img src="images/virgocx-ds/Next-steps.png" alt="Next Steps" class="img-full" />
+      <p class="section-body">The next steps for the design system include:</p>
+      <ul class="section-list">
+        <li><strong>Comprehensive documentation:</strong> Creating detailed documentation for all components and guidelines will make the system easier for the entire team to use and ensure consistency as it grows.</li>
+        <li><strong>Expanding components:</strong> We plan to add more detailed components and may eventually separate the system into web and mobile versions to better support platform-specific needs.</li>
+        <li><strong>Enhanced accessibility:</strong> Key initiatives include supporting users with color vision deficiencies and implementing a "senior mode." Stakeholders and the Head of Product have recognized the importance of these features and support their future implementation.</li>
+        <li><strong>WCAG alignment:</strong> We will ensure components and interactions follow WCAG guidelines, including maintaining sufficient color contrast, providing descriptive labels for screen readers, and supporting scalable text. These measures will make the platform more inclusive and user-friendly for a diverse range of users.</li>
+      </ul>
+
+      <p class="section-body"><strong>Web Content Accessibility Guidelines</strong></p>
+      <img src="images/virgocx-ds/Wcag-1.png" alt="WCAG 2" class="img-full" />
+      <p class="section-body">WCAG 2.2 was officially published as a W3C Recommendation on October 5, 2023. It builds on earlier versions like WCAG 2.1 by introducing new success criteria that address gaps in accessibility, including better keyboard interaction, clearer focus visibility, and improved mobile usability. As digital products and user behaviors continue to evolve, these updated standards are especially important today. <strong>More governments and organizations are adopting WCAG as a legal requirement and best-practice benchmark, and aligning with WCAG 2.2 helps ensure products are inclusive, usable for a wider range of users, and compliant with accessibility regulations across different regions.</strong></p>
+      <img src="images/virgocx-ds/Wcag-2.png" alt="WCAG How it Works" class="img-full" />
+      <p class="section-body">The next step is to become familiar with WCAG 2.2 guidelines and use them as a reference when building and updating the design system. For example, we can check color contrast ratios to ensure text is readable, provide descriptive labels for screen readers, maintain proper focus indicators for keyboard navigation, and support scalable text for users who need larger fonts.</p>
+      <p class="section-body">Following these standards is not only about compliance — it's also a great opportunity to learn, grow, and stay up-to-date with modern accessibility practices, ensuring our designs remain inclusive and user-friendly.</p>
     </div>
 
     <hr class="divider" />
@@ -496,6 +527,7 @@
     <div class="section">
       <p class="section-label">Outcomes</p>
       <img src="images/virgocx-ds/Outcomes.png" alt="Outcomes" class="img-full" />
+      <p class="section-body">By standardizing core components, the design system led to an estimated <strong>20–30% faster design-to-development handoff</strong> and helped new team members onboard more quickly. Building this system gave me a deeper understanding of how design decisions impact scalability, consistency, and cross-team collaboration — and reinforced that a design system is never truly complete, but an evolving foundation that grows with the product.</p>
     </div>
 
     <hr class="divider" />
