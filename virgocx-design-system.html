@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VirgoCX - Design System — AVISS KEJIA ZHAO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: "Konstant Grotesk";
+      src: url("KonstantGrotesk.otf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2.5rem 1.5rem 2.5rem 3.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.5;
+      font-family: "Konstant Grotesk", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-name a { color: #111; }
+
+    .sidebar-title {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #111;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      margin-top: -1.5rem;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    nav a {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
+    nav a.nav-bold { font-weight: 700; }
+    nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
+
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .sidebar-social a {
+      color: #111;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 300px;
+      flex: 1;
+      padding: 4rem 4rem 6rem 3rem;
+      max-width: 960px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── HERO ── */
+    .case-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .case-tags-block {
+      margin-bottom: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .case-tags-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-tags {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-cover {
+      width: 100%;
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: hsl(9, 63%, 65%);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body strong { color: #111; font-weight: 700; }
+
+    /* ── IMAGES ── */
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
+
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-2 img { width: 100%; display: block; }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-3 img { width: 100%; display: block; }
+
+    /* ── PROJECT CARDS ── */
+    .project-card {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .project-card:hover { opacity: 0.75; }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid #e8e8e8; margin: 3rem 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative; width: 100%; height: auto;
+        padding: 2rem 2rem 1.5rem 2.5rem;
+        flex-direction: column; border-bottom: 1px solid #eee;
+      }
+      .sidebar-name { margin-bottom: 2rem; }
+      .sidebar-social { margin-top: 2rem; }
+      main { margin-left: 0; padding: 1.5rem; max-width: 100%; }
+      .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-name">
+      <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
+    </div>
+    <p class="sidebar-title">Product Designer<br/>Associate RGD</p>
+    <nav>
+      <a href="index.html" class="active">Work</a>
+      <a href="resume.pdf" target="_blank" class="nav-bold">Resume</a>
+      <a href="about.html" class="nav-gap nav-small">About</a>
+      <a href="etc.html" class="nav-small">Etc.</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/aviss-kejia-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
+        <i class="bi bi-instagram" style="font-size:20px;"></i>
+      </a>
+      <a href="mailto:aviszkj@hotmail.com" aria-label="Email">
+        <i class="bi bi-envelope" style="font-size:20px;"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <h1 class="case-title">VirgoCX — Building a Design System from the Ground Up</h1>
+    <p class="case-subtitle">Building a scalable design foundation for a growing Canadian crypto platform across web, mobile, and marketing channels.</p>
+
+    <img src="images/virgocx-ds/01.png" alt="VirgoCX Design System Cover" class="case-cover" />
+
+    <!-- ABOUT -->
+    <div class="section">
+      <p class="section-label">About VirgoCX</p>
+      <p class="section-body">VirgoCX is a Canadian cryptocurrency trading platform aiming to provide a secure, user-friendly experience for both new and advanced traders. As the company expanded its product offerings across web, app, and marketing channels, the need for a unified design foundation became critical.</p>
+    </div>
+
+    <!-- MY ROLE -->
+    <div class="section">
+      <p class="section-label">My Role</p>
+      <p class="section-body">As a UI/UX Designer, I collaborated with the design lead, product manager, and developers to audit existing interfaces, establish a design system, and ensure consistency across platforms. My focus was on scalability, accessibility, and efficiency in the design-to-development workflow.</p>
+      <p class="section-body"><strong>Confidentiality:</strong> Due to company policies on privacy and confidentiality, I am unable to disclose full details of the work process or product-related projects. However, for this ongoing project, I can share examples of standardized components to demonstrate my understanding of design systems and showcase my skills as a designer, while still respecting company guidelines and maintaining confidentiality.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- OVERVIEW -->
+    <div class="section">
+      <p class="section-label">Overview</p>
+      <h2 class="section-heading">Component Library & Design System</h2>
+      <img src="images/virgocx-ds/02.png" alt="Overview" class="img-full" />
+      <p class="section-body">When I first joined VirgoCX, the team lacked a proper design system, which resulted in inconsistencies across products. I initiated and collaborated with the design lead to build a <strong>scalable design system</strong> from the ground up. This process included conducting a UI audit to identify existing patterns, consolidating reusable components, and defining naming conventions, states, and interaction behaviors. I also established guidelines for typography, color, spacing, and accessibility, and partnered with developers to ensure seamless implementation.</p>
+      <p class="section-body">Alongside the system, I created the company's logo variations for overseas business expansion, ensuring brand consistency across different markets.</p>
+      <p class="section-body"><strong>The design system and brand assets not only streamlined collaboration between design and engineering but also reduced repeated work, improved visual consistency, and accelerated the rollout of new features and global initiatives.</strong></p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- THE PROBLEM -->
+    <div class="section">
+      <p class="section-label">The Problem</p>
+      <img src="images/virgocx-ds/03.png" alt="The Problem" class="img-full" />
+      <h2 class="section-heading">Issues Discovered in the Existing Component Library</h2>
+      <img src="images/virgocx-ds/04.png" alt="Issues" class="img-full" />
+      <p class="section-body"><strong>Examples of areas for improvement:</strong></p>
+      <img src="images/virgocx-ds/05.png" alt="Areas for improvement 1" class="img-full" />
+      <img src="images/virgocx-ds/06.png" alt="Areas for improvement 2" class="img-full" />
+      <img src="images/virgocx-ds/07.png" alt="Areas for improvement 3" class="img-full" />
+      <img src="images/virgocx-ds/08.png" alt="Areas for improvement 4" class="img-full" />
+      <p class="section-body">The examples highlighted above represent only a portion of the areas for improvement within the design system. Many additional aspects will need to be assessed and refined to ensure the system remains scalable, consistent, and supportive of future growth.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- THE GOAL -->
+    <div class="section">
+      <p class="section-label">The Goal</p>
+      <img src="images/virgocx-ds/09.png" alt="The Goal" class="img-full" />
+    </div>
+
+    <hr class="divider" />
+
+    <!-- RESEARCH & AUDIT -->
+    <div class="section">
+      <p class="section-label">Research</p>
+      <h2 class="section-heading">Research & Audit</h2>
+      <img src="images/virgocx-ds/10.png" alt="Research and Audit" class="img-full" />
+      <p class="section-body">Since we were building the design system from the ground up, I spent this phase researching <strong>how successful design systems are structured and what key considerations make them effective.</strong> I explored a variety of resources, including Figma community examples and materials from the Interaction Design Foundation, taking notes on best practices and common pitfalls.</p>
+      <p class="section-body"><strong>Examples of some useful resources:</strong></p>
+      <div class="img-grid-3">
+        <img src="images/virgocx-ds/11.png" alt="Figma resources" />
+        <img src="images/virgocx-ds/12.png" alt="Interaction Design Foundation" />
+        <img src="images/virgocx-ds/13.png" alt="Google Material Design" />
+      </div>
+      <p class="section-body">Next, I worked with the design lead to <strong>audit the existing products</strong> — reviewing components, typography, color usage, spacing, and layout patterns. Since we were building from the ground up, <strong>I mainly focused on organizing the core elements</strong> — colors, typography, spacing, and key components — which helped us highlight inconsistency and gaps across the product.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ACCESSIBILITY -->
+    <div class="section">
+      <p class="section-label">Accessibility</p>
+      <h2 class="section-heading">Research & Audit — Accessibility</h2>
+      <img src="images/virgocx-ds/14.png" alt="Accessibility" class="img-full" />
+      <p class="section-body"><strong>My approach to accessibility has two parts:</strong></p>
+      <p class="section-body"><strong>1. General accessibility basics</strong> — things like color contrast, readable typography, font size, clear hierarchy, responsive layouts, and keyboard-friendly interactions.</p>
+      <div class="img-grid-3">
+        <img src="images/virgocx-ds/15.png" alt="Color contrast" />
+        <img src="images/virgocx-ds/16.png" alt="Readable font" />
+        <img src="images/virgocx-ds/17.png" alt="Responsive layout" />
+      </div>
+      <p class="section-body"><strong>2. Accessibility in the context of the product.</strong> For example, when I was at VirgoCX, I noticed through competitive research that Binance had already started implementing accessibility features. In trading, most charts rely on a red–green color system, which makes it difficult for users with red-green color-vision deficiencies to interpret market signals accurately. So Binance even introduced a color-deficiency mode, which I think is <strong>a great example of inclusive design.</strong></p>
+      <div class="img-grid-3">
+        <img src="images/virgocx-ds/18.png" alt="Binance 1" />
+        <img src="images/virgocx-ds/19.png" alt="Binance 2" />
+        <img src="images/virgocx-ds/20.png" alt="Binance 3" />
+      </div>
+      <p class="section-body">In trading — whether stocks, crypto, or forex — <strong>red and green dominate the screen</strong>. Red indicates a price decrease, while green signals an increase. For individuals with <strong>red-green color vision deficiencies</strong>, these cues can be difficult to interpret, leading to costly, poorly timed trades. In a market like crypto, which moves rapidly and never sleeps, even a few seconds of hesitation or misinterpretation can create a significant disadvantage.</p>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/21.png" alt="Binance color 1" />
+        <img src="images/virgocx-ds/22.png" alt="Binance color 2" />
+      </div>
+      <p class="section-body">In my competitor analysis of Binance, I noted that their recent UI Refined update introduced improvements such as enhanced typography, dark mode, and customizable layout widgets. <strong>They also included features addressing color vision deficiencies</strong> — an important consideration in trading platforms.</p>
+      <p class="section-body"><strong>Accessibility Consideration/Improvements:</strong> Drawing from these observations, I prioritized accessibility in the VirgoCX design system by focusing on readability, responsive design, and consideration of color vision deficiency modes.</p>
+      <div class="img-grid-3">
+        <img src="images/virgocx-ds/23.png" alt="Accessibility improvement 1" />
+        <img src="images/virgocx-ds/24.png" alt="Accessibility improvement 2" />
+        <img src="images/virgocx-ds/25.png" alt="Accessibility improvement 3" />
+      </div>
+      <p class="section-body">Based on research and competitor analysis, key accessibility considerations were identified for the design system. <strong>Accessibility is an ongoing effort, and there is always room to further incorporate improvements in the future.</strong></p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- BEFORE & AFTER -->
+    <div class="section">
+      <p class="section-label">Process</p>
+      <h2 class="section-heading">Before & After: Tracking and Guiding Design System Components</h2>
+      <p class="section-body">To ensure consistency across the design system, I created a comprehensive table as a work guidance tool. It captured the initial state of each component, identified required improvements, documented the standardized redesign, and included a final quality and accessibility review.</p>
+      <img src="images/virgocx-ds/26.png" alt="Before and After 1" class="img-full" />
+      <img src="images/virgocx-ds/27.png" alt="Before and After 2" class="img-full" />
+    </div>
+
+    <hr class="divider" />
+
+    <!-- FOUNDATIONS & COMPONENTS -->
+    <div class="section">
+      <p class="section-label">Foundations & Components</p>
+      <h2 class="section-heading">Colors</h2>
+      <p class="section-body">The first organized part of the design system was the color palette. When the company expanded overseas in 2022, Virgo Group introduced a new logo and brand colors. This provided the perfect opportunity to structure colors by function — logo colors, functional colors, neutral tones, and background colors.</p>
+      <img src="images/virgocx-ds/28.png" alt="Colors" class="img-full" />
+      <p class="section-body">Most importantly, the colors followed standardized <strong>naming conventions</strong>. This means that <strong>color names describe their function or usage rather than the color itself</strong>, making them easy for developers to understand and implement.</p>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/29.png" alt="Color naming 1" />
+        <img src="images/virgocx-ds/30.png" alt="Color naming 2" />
+      </div>
+      <p class="section-body">Later that year, with the launch of dark mode on the mobile app, we introduced the dark mode color palette. This color foundation now anchors the design system and supports the scalability of future products.</p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Typography</h2>
+      <p class="section-body">The <strong>Matter font family</strong> was chosen for the website, while the <strong>Nunito font family</strong> was applied across the mobile app and trading platform. Beyond font selection, I established detailed guidelines covering heading hierarchies, font sizes, line heights, and spacing ratios.</p>
+      <img src="images/virgocx-ds/31.png" alt="Fonts" class="img-full" />
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/32.png" alt="Typography 1" />
+        <img src="images/virgocx-ds/33.png" alt="Typography 2" />
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Logo</h2>
+      <p class="section-body">The original logos were documented in the design system. As the company expanded into Australia and the UK under Virgo Group, new logos were collaboratively developed with stakeholders. <strong>All logos were then systematically documented in the design system.</strong></p>
+      <img src="images/virgocx-ds/34.png" alt="Logo" class="img-full" />
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Button</h2>
+      <p class="section-body"><strong>We standardized buttons and their sizes</strong> — large at 60px, medium at 50px, and small at 36px. We also removed gradient colors from the buttons and kept them solid to ensure visual consistency.</p>
+      <img src="images/virgocx-ds/35.png" alt="Buttons before" class="img-full" />
+      <img src="images/virgocx-ds/36.png" alt="Buttons after" class="img-full" />
+      <img src="images/virgocx-ds/37.png" alt="Buttons details" class="img-full" />
+      <img src="images/virgocx-ds/38.png" alt="Buttons details 2" class="img-full" />
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Icons</h2>
+      <p class="section-body">At the beginning, icons for both web and mobile were not standardized, as most were sourced from the Noun Project. This led to inconsistencies in style and line weight. To address this, a complete set of standardized icons was purchased to ensure consistency across current products and to support future business expansion.</p>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/39.png" alt="Icons 1" />
+        <img src="images/virgocx-ds/40.png" alt="Icons 2" />
+      </div>
+      <p class="section-body"><strong>Cryptocurrency icons were heavily used across both product and visual design</strong> — ranging from the trading platform to marketing campaigns and printed event materials. To ensure consistency, I standardized these icons and properly labeled them in the design system.</p>
+      <img src="images/virgocx-ds/41.png" alt="Crypto icons" class="img-full" />
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Responsive Key Area Layout for Web & H5</h2>
+      <p class="section-body">If the responsive key area layout isn't standardized, maintaining consistency becomes difficult — especially when multiple standalone websites exist under the company. We defined responsive key area layouts for both Web and H5 platforms to ensure consistent spacing and alignment across different screen sizes.</p>
+      <p class="section-body">For Web (≥1248px), the key area ranges from 1200px to 1440px with horizontal padding between 24px and 360px. For H5 (&lt;992px), we adopted a mobile-first approach, scaling the key area from 944px down to 351px with padding from 24px to 12px.</p>
+      <img src="images/virgocx-ds/42.png" alt="Responsive Key Area Layout" class="img-full" />
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Header & Footer</h2>
+      <p class="section-body">With the revamp of the main website virgocx.ca, the header and footer were standardized to ensure consistency ahead of the company's international expansion. The design was collaboratively developed with the product manager and head of the product team.</p>
+      <img src="images/virgocx-ds/43.png" alt="Header" class="img-full" />
+      <img src="images/virgocx-ds/44.png" alt="Header VirgoCX" class="img-full" />
+      <img src="images/virgocx-ds/45.png" alt="Footer" class="img-full" />
+      <img src="images/virgocx-ds/46.png" alt="Footer VirgoCX" class="img-full" />
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Others</h2>
+      <p class="section-body">The design system also includes a set of foundational and UI components — such as spacing scales, border radius tokens, checkboxes, dividers, switches, dropdown menus, input fields, and card layouts.</p>
+      <img src="images/virgocx-ds/47.png" alt="Other components" class="img-full" />
+      <p class="section-body"><strong>This design system is not a finished project but rather a foundation that continues to evolve.</strong> It is built to grow with the company's products, allowing more components and standardized elements to be documented and added over time.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- DESIGN SYSTEM IN ACTION -->
+    <div class="section">
+      <p class="section-label">Canadian Website Redesign</p>
+      <p class="section-body">Using the design system during the website revamp ensured that each component was standardized and consistently implemented across the redesign. This not only created a more cohesive look and feel but also streamlined the process of updating and building new subpages.</p>
+      <p class="section-body"><strong>Old website:</strong></p>
+      <img src="images/virgocx-ds/48.png" alt="Old website" class="img-full" />
+      <p class="section-body"><strong>Website revamp:</strong></p>
+      <img src="images/virgocx-ds/49.png" alt="Website revamp 1" class="img-full" />
+      <img src="images/virgocx-ds/50.png" alt="Website revamp 2" class="img-full" />
+      <img src="images/virgocx-ds/51.png" alt="Website revamp 3" class="img-full" />
+      <img src="images/virgocx-ds/52.png" alt="Banner" class="img-full" />
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Brand / Global Consideration</h2>
+      <p class="section-body">With VirgoCX expanding overseas, the updated design system became the foundation for building the new <strong>Virgo.co</strong> website, supporting the company's global business strategy. By leveraging standardized components, typography, and color systems, we ensured consistency across regions while still allowing flexibility for localization.</p>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/53.png" alt="Virgo global 1" />
+        <img src="images/virgocx-ds/54.png" alt="Virgo global 2" />
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Dark Mode</h2>
+      <p class="section-body">Instead of implementing broader accessibility features at once, the team and I decided to focus on <strong>dark mode</strong> first. Users check the markets throughout the day and night, so readability was key. We tried out several color palettes and finally landed on a dark mode for the mobile trading app first. With the design system in place, adding dark mode to the website in the future will be much easier.</p>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/55.png" alt="Dark mode 1" />
+        <img src="images/virgocx-ds/56.png" alt="Dark mode 2" />
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-heading">Design Consistency Across Teams and Channels</h2>
+      <p class="section-body">Since the design system was established, core brand elements such as logos, colors, typography, and icons have been standardized and centralized. This allows not only the product team, but also the wealth and marketing teams to easily access and reuse these assets.</p>
+      <p class="section-body"><strong>By extending beyond product UI, the design system became a shared visual foundation for the entire organization.</strong> It helps different teams work faster, while ensuring brand consistency across digital products, marketing channels, and physical printed materials.</p>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/57.png" alt="Brand consistency 1" />
+        <img src="images/virgocx-ds/58.png" alt="Brand consistency 2" />
+      </div>
+      <div class="img-grid-2">
+        <img src="images/virgocx-ds/59.png" alt="Brand consistency 3" />
+        <img src="images/virgocx-ds/60.png" alt="Brand consistency 4" />
+      </div>
+      <div class="img-grid-3">
+        <img src="images/virgocx-ds/61.png" alt="Brand consistency 5" />
+        <img src="images/virgocx-ds/62.png" alt="Brand consistency 6" />
+        <img src="images/virgocx-ds/63.png" alt="Brand consistency 7" />
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- CHALLENGES -->
+    <div class="section">
+      <p class="section-label">Challenges</p>
+      <img src="images/virgocx-ds/64.png" alt="Challenges" class="img-full" />
+      <p class="section-body"><strong>Timeline:</strong> This was a long-term, ongoing project that I worked on alongside my core responsibilities. Because of that, progress was incremental, and each phase took longer than initially expected. We focused on steady, sustainable progress rather than rushing incomplete solutions.</p>
+      <p class="section-body"><strong>Technical constraints:</strong> While we prioritized foundations and core components first, there were still areas that required compromise. For example, ideally we wanted to use gradient buttons and possible animations, but developers pointed out that solid colors were more feasible at the time.</p>
+    </div>
+
+
+    <hr class="divider" />
+
+    <!-- COLLABORATION -->
+    <div class="section">
+      <p class="section-label">Collaboration</p>
+      <img src="images/virgocx-ds/65.png" alt="Collaboration" class="img-full" />
+    </div>
+
+    <hr class="divider" />
+
+    <!-- NEXT STEPS -->
+    <div class="section">
+      <p class="section-label">Next Steps</p>
+      <img src="images/virgocx-ds/66.png" alt="Next Steps" class="img-full" />
+    </div>
+
+    <hr class="divider" />
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <p class="section-label">Outcomes</p>
+      <img src="images/virgocx-ds/67.png" alt="Outcomes" class="img-full" />
+    </div>
+
+    <hr class="divider" />
+
+    <!-- OTHER PROJECTS -->
+    <div class="section">
+      <p class="section-label">Check out my other projects</p>
+      <div class="img-grid-2">
+        <a href="gate-io.html" class="project-card">
+          <img src="images/Gate.io-cover.png" alt="Gate.io" style="width:100%; display:block; margin-bottom:0.75rem;" />
+          <div style="font-weight:700; font-size:0.95rem;">Gate.io</div>
+          <div style="font-size:0.85rem; color:#888;">UI/UX, Product Design, Research, Problem Analysis</div>
+        </a>
+        <a href="virgocx.html" class="project-card">
+          <img src="images/VirgoCX-Project Showcase-cover.png" alt="VirgoCX Design Collection" style="width:100%; display:block; margin-bottom:0.75rem;" />
+          <div style="font-weight:700; font-size:0.95rem;">VirgoCX Design Collection</div>
+          <div style="font-size:0.85rem; color:#888;">UI/UX, Product Design, Research, Graphic/Visual Design</div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
