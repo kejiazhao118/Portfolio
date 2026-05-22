@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gate.io Homepage Redesign — AVISS KEJIA ZHAO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: "Konstant Grotesk";
+      src: url("KonstantGrotesk.otf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2.5rem 1.5rem 2.5rem 3.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.5;
+      font-family: "Konstant Grotesk", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-name a { color: #111; }
+
+    .sidebar-title {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #111;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      margin-top: -1.5rem;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    nav a {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
+    nav a.nav-bold { font-weight: 700; }
+    nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
+
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .sidebar-social a {
+      color: #111;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 300px;
+      flex: 1;
+      padding: 4rem 4rem 6rem 4rem;
+      max-width: 800px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── HERO ── */
+    .case-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .case-tags-block {
+      margin-bottom: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .case-tags-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-tags {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-cover {
+      width: 100%;
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: hsl(9, 63%, 65%);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body strong { color: #111; font-weight: 700; }
+
+    /* ── IMAGES ── */
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
+
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-2 img { width: 100%; display: block; }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-3 img { width: 100%; display: block; }
+
+    /* ── OTHER PROJECTS ── */
+    .other-projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .other-project-card {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .other-project-card:hover { opacity: 0.75; }
+
+    .other-project-thumb {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      background: #f4f4f4;
+    }
+
+    .other-project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .other-project-card:hover .other-project-thumb img {
+      transform: scale(1.02);
+    }
+
+    .other-project-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .other-project-tags {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    /* ── PROJECT CARDS ── */
+    .project-card {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .project-card:hover { opacity: 0.75; }
+
+    .section-list {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.25rem 1.5rem;
+      padding: 0;
+    }
+
+    .section-list li {
+      margin-bottom: 0.75rem;
+    }
+
+    .subsection-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid #e8e8e8; margin: 3rem 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative; width: 100%; height: auto;
+        padding: 2rem 2rem 1.5rem 2.5rem;
+        flex-direction: column; border-bottom: 1px solid #eee;
+      }
+      .sidebar-name { margin-bottom: 2rem; }
+      .sidebar-social { margin-top: 2rem; }
+      main { margin-left: 0; padding: 1.5rem; max-width: 100%; }
+      .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-name">
+      <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
+    </div>
+    <p class="sidebar-title">Product Designer<br/>Associate RGD</p>
+    <nav>
+      <a href="index.html" class="active">Work</a>
+      <a href="resume.pdf" target="_blank" class="nav-bold">Resume</a>
+      <a href="about.html" class="nav-gap nav-small">About</a>
+      <a href="etc.html" class="nav-small">Etc.</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/aviss-kejia-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
+        <i class="bi bi-instagram" style="font-size:20px;"></i>
+      </a>
+      <a href="mailto:aviszkj@hotmail.com" aria-label="Email">
+        <i class="bi bi-envelope" style="font-size:20px;"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <h1 class="case-title">Gate.io — Homepage Redesign</h1>
+    <p class="case-subtitle">Redesigning the Gate.io homepage by identifying existing issues and proposing solutions — from UI analysis to high-fidelity redesign.</p>
+
+    <img src="images/gate-io/Cover.webp" alt="Gate.io Homepage Redesign Cover" class="case-cover" />
+
+    <!-- BRIEF -->
+    <div class="section">
+      <p class="section-label">Brief</p>
+      <p class="section-body">In April 2024, I participated in a contract project with <strong>Gate.io</strong>, one of Asia's leading cryptocurrency trading platforms, to revamp its entire UI and upgrade its information architecture <strong>from version 2.0 to 3.0</strong>.</p>
+      <p class="section-body">Gate.io is a centralized cryptocurrency exchange, established in 2013, that provides a platform for buying, selling, and trading over 3,800 cryptocurrencies. It's known for its wide range of supported cryptocurrencies, diverse trading options (including spot, margin, and futures), and advanced trading tools like trading bots and copy trading.</p>
+      <p class="section-body">I was tasked with redesigning the Gate.io homepage by first identifying existing issues and then proposing solutions. Below is a demonstration of my analysis and approach before moving into the revamp process.</p>
+    </div>
+
+    <!-- TASK REQUIREMENTS -->
+    <div class="section">
+      <p class="section-label">Task Requirements</p>
+      <ul class="section-list">
+        <li>Analyze existing problems on the homepage, identify key issues, and break them down.</li>
+        <li>Undertake a homepage redesign, with the scope covering — but not limited to — the homepage.</li>
+        <li>Explain your understanding of the product, your design strategy, and your approach to problem-solving.</li>
+        <li>Deliver a complete and finalized UI design solution.</li>
+      </ul>
+      <p class="section-body"><strong>This is what Gate.io's 2.0 homepage looks like in English & Chinese version:</strong></p>
+      <div class="img-grid-2">
+        <img src="images/gate-io/Gateio-english.webp" alt="Gate.io 2.0 English" />
+        <img src="images/gate-io/Gateio-chinese.webp" alt="Gate.io 2.0 Chinese" />
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- COMPETITIVE ANALYSIS -->
+    <div class="section">
+      <p class="section-label">Competitive Analysis</p>
+      <p class="section-body">Since Gate.io is a cryptocurrency exchange, conducting competitor analysis and research before redesigning the homepage was essential. After reviewing numerous exchanges across Asia and North America, I focused on three major Asian platforms: OKX, Binance, and Bybit.</p>
+      <p class="section-body"><strong>My summary: all three have optimized their websites and apps by embracing simplicity — streamlining complex and redundant features to highlight only the most essential elements.</strong> They also use attractive visual effects to enhance the user experience subtly. This trend toward "less is more" might well represent the future direction of UI/UX design.</p>
+
+      <p class="section-body"><strong>OKX</strong></p>
+      <p class="section-body">As one of the leading exchanges in Asia and worldwide, OKX is an innovative cryptocurrency exchange with advanced financial services. It provides hundreds of tokens and trading pairs, serving millions of users in over 100 countries.</p>
+      <div class="img-grid-3">
+        <img src="images/gate-io/Okx-1.webp" alt="OKX 1" />
+        <img src="images/gate-io/Okx-2.webp" alt="OKX 2" />
+        <img src="images/gate-io/Okx-3.webp" alt="OKX 3" />
+      </div>
+
+      <p class="section-body"><strong>Binance</strong></p>
+      <p class="section-body">Binance is one of the world's largest cryptocurrency exchanges, offering spot trading, futures, options, staking, and more. It's known for high liquidity, extensive cryptocurrency range, advanced trading features, and global reach.</p>
+      <div class="img-grid-2">
+        <img src="images/gate-io/Binance-1.webp" alt="Binance 1" />
+        <img src="images/gate-io/Binance-2.webp" alt="Binance 2" />
+      </div>
+      <div class="img-grid-2">
+        <img src="images/gate-io/Binance-3.webp" alt="Binance 3" />
+        <img src="images/gate-io/Binance-4.webp" alt="Binance 4" />
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- REDESIGN PROCESS -->
+    <div class="section">
+      <p class="section-label">Redesign Process</p>
+
+      <p class="section-body"><strong>Goals</strong></p>
+      <ul class="section-list">
+        <li>Conducted problem analysis of the Gate.io homepage, identifying and breaking down existing issues.</li>
+        <li>Redesigned the homepage while maintaining Gate.io's existing style and brand color scheme.</li>
+        <li>The core objective was to improve information presentation, information architecture, interactions, and visual elements.</li>
+        <li>The homepage redesign was primarily based on the English version of the site.</li>
+      </ul>
+      <img src="images/gate-io/Goals-english.webp" alt="Goals English" class="img-full" />
+      <img src="images/gate-io/Goals-chinese.webp" alt="Goals Chinese" class="img-full" />
+    </div>
+
+    <div class="section">
+      <p class="section-body"><strong>Analysis of Issues</strong></p>
+      <p class="section-body">By identifying problems and pain points, I thoroughly analyzed how each interactive element functions — examining where and how clickable components navigate users. I assessed all UI elements, including icons, colors, images, and abbreviations, to ensure they communicate clear and accurate information.</p>
+      <img src="images/gate-io/Analysis-english.webp" alt="Analysis English" class="img-full" />
+      <img src="images/gate-io/Analysis-chinese.webp" alt="Analysis Chinese" class="img-full" />
+    </div>
+
+    <div class="section">
+      <p class="section-body"><strong>Redesign with Explanation</strong></p>
+      <p class="section-body">By addressing each issue, I provided solutions focused on enhancing user needs while ensuring consistency and accessibility. Rather than implementing dramatic changes, I focused on the finer details — such as overlooked functions, icons, and colors. I firmly believe that <strong>"great design lies in the details — refining every element ensures clarity, usability, and a meaningful connection with users."</strong></p>
+      <img src="images/gate-io/Redesign-1-english.webp" alt="Redesign 1 English" class="img-full" />
+      <img src="images/gate-io/Redesign-2-english.webp" alt="Redesign 2 English" class="img-full" />
+      <img src="images/gate-io/Redesign-3-english.webp" alt="Redesign 3 English" class="img-full" />
+      <img src="images/gate-io/Redesign-4-english.webp" alt="Redesign 4 English" class="img-full" />
+      <img src="images/gate-io/Redesign-5-english.webp" alt="Redesign 5 English" class="img-full" />
+    </div>
+
+    <div class="section">
+      <p class="section-body"><strong>Redesign with Explanation in Chinese</strong></p>
+      <img src="images/gate-io/Redesign-1-chinese.webp" alt="Redesign 1 Chinese" class="img-full" />
+      <img src="images/gate-io/Redesign-2-chinese.webp" alt="Redesign 2 Chinese" class="img-full" />
+      <img src="images/gate-io/Redesign-3-chinese.webp" alt="Redesign 3 Chinese" class="img-full" />
+      <img src="images/gate-io/Redesign-4-chinese.webp" alt="Redesign 4 Chinese" class="img-full" />
+      <img src="images/gate-io/Redesign-5-chinese.webp" alt="Redesign 5 Chinese" class="img-full" />
+    </div>
+
+    <div class="section">
+      <p class="section-body"><strong>Final Deliverable</strong></p>
+      <div class="img-grid-2">
+        <img src="images/gate-io/Screen-1.webp" alt="Final Screen 1" />
+        <img src="images/gate-io/Screen-2.webp" alt="Final Screen 2" />
+      </div>
+      <div class="img-grid-2">
+        <img src="images/gate-io/Screen-3.webp" alt="Final Screen 3" />
+        <img src="images/gate-io/Screen-4.webp" alt="Final Screen 4" />
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- PROJECT CONTRIBUTION -->
+    <div class="section">
+      <p class="section-label">Project Contribution</p>
+      <p class="section-body">During Gate.io's UI revamp project, the entire team collaborated to optimize both the website and app from version 2.0 to 3.0. My group focused on fundamental pages, and I primarily worked on the <strong>"My Profile" section</strong> and its subpages, including Announcements and Support. My responsibilities included applying the new design system, optimizing user flows and information architecture, and collaborating on competitor analysis.</p>
+      <p class="section-body"><strong>An example of optimization of the My Profile static page in both light and dark mode:</strong></p>
+      <img src="images/gate-io/My-profile-light.webp" alt="My Profile Light Mode" class="img-full" />
+      <img src="images/gate-io/My-profile-dark.webp" alt="My Profile Dark Mode" class="img-full" />
+    </div>
+
+    <hr class="divider" />
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <p class="section-label">Outcomes</p>
+      <p class="section-body">Working as part of a large team gave me a great opportunity to experience the working style of Asian companies and understand how teamwork functions in a big organization. Along the way, I gained valuable hands-on experience that deepened my skills in both UI and UX design — expanding my professional abilities and teaching me a lot about effective collaboration and communication in a large team setting.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- BACK TO WORK BOTTOM -->
+    <div style="padding: 3rem 0 1rem;">
+      <a href="index.html" class="back-link">← Back to Work</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
