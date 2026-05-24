@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hidden — AVISS KEJIA ZHAO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: "Konstant Grotesk";
+      src: url("KonstantGrotesk.otf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2.5rem 1.5rem 2.5rem 3.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.5;
+      font-family: "Konstant Grotesk", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-name a { color: #111; }
+
+    .sidebar-title {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #111;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      margin-top: -1.5rem;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    nav a {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
+    nav a.nav-bold { font-weight: 700; }
+    nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
+
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .sidebar-social a {
+      color: #111;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 300px;
+      flex: 1;
+      padding: 4rem 4rem 6rem 4rem;
+      max-width: 800px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── HERO ── */
+    .case-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .case-cover {
+      width: 100%;
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: hsl(9, 63%, 65%);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body strong { color: #111; font-weight: 700; }
+
+    .subsection-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    /* ── IMAGES ── */
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
+
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-2 img { width: 100%; display: block; }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-3 img { width: 100%; display: block; }
+
+    /* ── CAPTION ── */
+    .caption {
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: 400;
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── LIST ── */
+    .section-list {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.25rem 1.5rem;
+      padding: 0;
+    }
+
+    .section-list li { margin-bottom: 0.75rem; }
+
+    /* ── PROTOTYPE LINK ── */
+    .proto-link {
+      color: hsl(9, 63%, 65%);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .proto-link:hover { opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative; width: 100%; height: auto;
+        padding: 2rem 2rem 1.5rem 2.5rem;
+        flex-direction: column; border-bottom: 1px solid #eee;
+      }
+      .sidebar-name { margin-bottom: 2rem; }
+      .sidebar-social { margin-top: 2rem; }
+      main { margin-left: 0; padding: 1.5rem; max-width: 100%; }
+      .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-name">
+      <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
+    </div>
+    <p class="sidebar-title">Product Designer<br/>Associate RGD</p>
+    <nav>
+      <a href="index.html" class="active">Work</a>
+      <a href="resume.pdf" target="_blank" class="nav-bold">Resume</a>
+      <a href="about.html" class="nav-gap nav-small">About</a>
+      <a href="etc.html" class="nav-small">Etc.</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/aviss-kejia-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
+        <i class="bi bi-instagram" style="font-size:20px;"></i>
+      </a>
+      <a href="mailto:aviszkj@hotmail.com" aria-label="Email">
+        <i class="bi bi-envelope" style="font-size:20px;"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <h1 class="case-title">Hidden — A City Walking Tour App with AR</h1>
+    <p class="case-subtitle">A collaborative interactive system project exploring Toronto's hidden subcultures — combining UX research, branding, app prototyping, and Snapchat AR components.</p>
+
+    <img src="images/hidden/Cover.webp" alt="Hidden City Walking Tour App" class="case-cover" />
+
+    <!-- CONTEXT -->
+    <div class="section">
+      <p class="section-label">Context</p>
+      <p class="section-body">This project was developed around the theme <strong>"City of Experience"</strong> — exploring how living in the 21st century has expanded beyond the models of the 20th century. The brief challenged us to examine the ideologies, structures, and systems of contemporary urban life, and to create experiences of invisible cities that extend beyond physical infrastructure.</p>
+      <p class="section-body">The project was a collaboration between myself and my partner, Irem Harnark, spanning research, concept development, branding, app prototyping, and AR component design.</p>
+    </div>
+
+    <!-- RESEARCH & EXPLORATION -->
+    <div class="section">
+      <p class="section-label">Research & Exploration</p>
+      <p class="section-body">The first phase required creating a visual timeline of city experiences — looking back 100 years and forward 100 years. The goal was to blend primary research (interviews, surveys, observations) with secondary research (historical and future facts) to map the different patterns and relationships of experience found in the city.</p>
+      <p class="section-body">The timeline included 50 items from the past, 10 from the future, and 5 moments of primary research. It served as a guide and map for concept development — narrowing our lens to cities we had personally visited and knew well.</p>
+      <img src="images/hidden/Timeline.webp" alt="City Experience Timeline" class="img-full" />
+      <p class="caption">Visual timeline of city experiences — past, present, and future</p>
+    </div>
+
+    <!-- CONCEPT VIDEO -->
+    <div class="section">
+      <p class="section-label">The Concept Video</p>
+      <p class="section-body">In the second phase, three 30-second concept videos were created to explore and pitch different directions. The concept we chose was a city walking tour app that gives users the opportunity to discover hidden gems, hear untold stories, and uncover secrets about the cities they live in or visit.</p>
+      <p class="section-body">The pitch video illustrates how Audio AR could integrate with the app using smart glasses. As the user walks through the city, GPS tracking alerts them to a hidden gem nearby. A tap on the glasses triggers the hidden story tied to that location.</p>
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/OwW5wGnMw98?start=4" title="Hidden — Concept Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 1.5rem 0; display: block;"></iframe>
+    </div>
+
+    <!-- INITIAL CONCEPT -->
+    <div class="section">
+      <p class="section-label">Initial Concept</p>
+      <p class="section-body">Exploring hidden gems in cities led to the initial concept: an app that lets users uncover a city's secrets and hidden spots. <strong>"Hidden"</strong> became both the app name and the project name.</p>
+      <img src="images/hidden/Initial-concept.webp" alt="Initial Low-Fidelity App Prototype" class="img-full" />
+      <p class="caption">First version of the low-fidelity app prototype</p>
+      <p class="section-body"><strong>Hidden — The platform to explore cities' hidden secrets.</strong></p>
+      <p class="section-body">Tired of tourist destinations overrun by crowds? Hidden is an invitation to explore cities as living, breathing entities — uncovering the unusual, unspoken histories, local stories, and cultural secrets that lie beneath the surface.</p>
+    </div>
+
+    <!-- REVISED CONCEPT -->
+    <div class="section">
+      <p class="section-label">Revised Concept</p>
+      <p class="section-body">During research and development, we realized the original scope was too broad for the available timeframe and resources. We narrowed the focus to Toronto — creating a prototype that reveals local subcultures that may be "hidden" to residents and visitors alike. This allowed us to focus entirely on content quality without relying on GPS infrastructure.</p>
+      <p class="section-body">The prototype presents four Toronto subcultures in an app interface, with AR snippets via Snapchat to enrich each story. The planned year-end show setup:</p>
+      <ul class="section-list">
+        <li>A monitor looping the app's promo video to draw visitors into the installation space</li>
+        <li>Users explore the interface and discover four stories</li>
+        <li>The app prompts users to open Snapchat for additional AR content</li>
+        <li>Physical marker cards are on display — scanning them triggers dedicated AR content for each story</li>
+      </ul>
+    </div>
+
+    <!-- STORIES -->
+    <div class="section">
+      <p class="section-label">Stories of Hidden</p>
+      <p class="section-body">Four Toronto subcultures were selected, each representing a different dimension of the hidden city: <strong>Unknown, Unseen, Unusual,</strong> and <strong>Unexpected.</strong></p>
+
+      <img src="images/hidden/Story-ballroom.webp" alt="Kiki Ballroom Scene" class="img-full" />
+      <p class="caption">Unknown — Kiki Ballroom Scene</p>
+      <p class="section-body">The Kiki Ballroom Scene originated in 1980s underground New York — a movement that rose from the underground to shape over 20 years of pop culture and identity. Canada's ballroom scene has built its own community of formidable dancers, judges, and MCs, with its own language, style, and etiquette.</p>
+
+      <img src="images/hidden/Story-underground.webp" alt="Underground Dance Music" class="img-full" />
+      <p class="caption">Unseen — Underground Dance Music</p>
+      <p class="section-body">Toronto's underground dance culture has weathered decades of change but persevered and evolved. After the peak years of the 90s and early 2000s, underground clubs, pop-ups, and warehouse-style parties continue to define the city's after-hours scene — especially in summer.</p>
+
+      <img src="images/hidden/Story-furries.webp" alt="Furries" class="img-full" />
+      <p class="caption">Unusual — Furries</p>
+      <p class="section-body">Furries are fans of anthropomorphic animals — animals with human characteristics. The community is deeply creative, encouraging imagination and self-expression. In a memorable moment, a large group of Toronto furries chartered an entire TTC streetcar, delighting onlookers across the city.</p>
+
+      <img src="images/hidden/Story-drifting.webp" alt="Drifting" class="img-full" />
+      <p class="caption">Unexpected — Drifting</p>
+      <p class="section-body">Drifting is a motorsport originating in Japan where the driver intentionally loses traction to maintain speed through corners. Though technically illegal on public roads, Toronto's drifting community thrives — from suburban parking lots to underground lessons — surviving and staying active even through harsh winters.</p>
+    </div>
+
+    <!-- BRANDING -->
+    <div class="section">
+      <p class="section-label">Branding</p>
+      <p class="section-body">Two moodboards guided the visual direction for Hidden's brand identity. Classic orange and dark navy were selected as primary brand colors — bold, distinctive, and fitting for a platform built around discovery and the underground. The design approach prioritized simplicity, clarity, and consistency across the logo, typography, AR markers, and all supporting assets.</p>
+      <img src="images/hidden/Moodboard.webp" alt="Moodboard" class="img-full" />
+      <img src="images/hidden/Branding-1.webp" alt="Branding 1" class="img-full" />
+      <img src="images/hidden/Branding-2.webp" alt="Branding 2" class="img-full" />
+      <img src="images/hidden/Branding-3.webp" alt="Branding 3" class="img-full" />
+      <img src="images/hidden/Branding-4.webp" alt="Branding 4" class="img-full" />
+      <img src="images/hidden/Branding-5.webp" alt="Branding 5" class="img-full" />
+      <img src="images/hidden/Branding-6.webp" alt="Branding 6" class="img-full" />
+      <img src="images/hidden/Marker-mockup.webp" alt="AR Marker Mockup" class="img-full" />
+      <p class="caption">AR marker mockup for the installation</p>
+    </div>
+
+    <!-- POSTERS -->
+    <div class="section">
+      <p class="section-label">Posters at Installation</p>
+      <div class="img-grid-3">
+        <img src="images/hidden/Poster-1.webp" alt="Poster 1" />
+        <img src="images/hidden/Poster-2.webp" alt="Poster 2" />
+        <img src="images/hidden/Poster-3.webp" alt="Poster 3" />
+      </div>
+      <img src="images/hidden/Poster-mockup.webp" alt="Poster Mockup" class="img-full" />
+      <img src="images/hidden/Installation.webp" alt="Installation Photo" class="img-full" />
+    </div>
+
+    <!-- APP PROTOTYPE -->
+    <div class="section">
+      <p class="section-label">App Prototype</p>
+      <p class="section-body">The app prototype was led by Irem, who coded the site and also developed a Figma version. The coded prototype is still in progress and not yet mobile-responsive.</p>
+      <p class="section-body">
+        → <a href="https://iremharnak.github.io/hiddenPrototype/" target="_blank" class="proto-link">View coded prototype</a><br/>
+        → <a href="https://www.figma.com/proto/Ebb59FM537EMq3UhKmZpU5/HIDDEN-PROTOTYPE?node-id=15%3A414&scaling=scale-down" target="_blank" class="proto-link">View Figma mobile prototype</a>
+      </p>
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/BjWmrfQuKwM?start=1" title="Hidden App Prototype" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 1.5rem 0; display: block;"></iframe>
+      <div class="img-grid-3">
+        <img src="images/hidden/App-1.webp" alt="App Screen 1" />
+        <img src="images/hidden/App-2.webp" alt="App Screen 2" />
+        <img src="images/hidden/App-3.webp" alt="App Screen 3" />
+      </div>
+      <div class="img-grid-2">
+        <img src="images/hidden/App-4.webp" alt="App Screen 4" />
+        <img src="images/hidden/App-5.webp" alt="App Screen 5" />
+      </div>
+    </div>
+
+    <!-- AR COMPONENTS -->
+    <div class="section">
+      <p class="section-label">AR Components</p>
+      <p class="section-body">The AR components were built using Lens Studio — a platform that lets users experience AR directly through the Snapchat app on their own phones. After familiarizing ourselves with the tool, we found it approachable, particularly for importing and creating 2D elements.</p>
+      <p class="section-body">Each marker in the installation corresponds to one of the four stories. When a user taps through a story in the app, they are prompted to switch to Snapchat and scan the physical marker. Scanning triggers AR content tied to that story — allowing users to interact with the narrative in the physical space.</p>
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/0JAmQlvIryg?start=1" title="Hidden AR Component 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 1.5rem 0; display: block;"></iframe>
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/xTUgUvbvBoU" title="Hidden AR Component 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 1.5rem 0; display: block;"></iframe>
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/amQhgocx2ic" title="Hidden AR Component 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 1.5rem 0; display: block;"></iframe>
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/ZwT0WnwOixI" title="Hidden AR Component 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: 1.5rem 0; display: block;"></iframe>
+      <img src="images/hidden/Tools.webp" alt="Tools and Technologies" class="img-full" />
+      <p class="caption">Tools & technologies used — Lens Studio, Snapchat, Figma, and more</p>
+    </div>
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <p class="section-label">Outcomes</p>
+      <p class="section-body">Hidden was a collaborative project that pushed us to think creatively and adapt quickly. Without a developer on the team, we encountered technical limitations that required us to rethink our approach — adjusting scope without compromising the content or vision.</p>
+      <p class="section-body">The process — from initial research to final deliverable — strengthened our ability to generate and combine ideas, communicate effectively as collaborators, and work across multiple tools and technologies to achieve a cohesive result.</p>
+      <p class="section-body">Unfortunately, the school year-end show was cancelled due to COVID-19. What was planned as a physical interactive installation was transformed into a comprehensive case study, documenting the full scope of work completed.</p>
+    </div>
+
+    <!-- BACK TO WORK BOTTOM -->
+    <div style="padding: 3rem 0 1rem;">
+      <a href="index.html" class="back-link">← Back to Work</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
