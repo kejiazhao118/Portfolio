@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative UI Design — AVISS KEJIA ZHAO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: "Konstant Grotesk";
+      src: url("KonstantGrotesk.otf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2.5rem 1.5rem 2.5rem 3.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.5;
+      font-family: "Konstant Grotesk", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-name a { color: #111; }
+
+    .sidebar-title {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #111;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      margin-top: -1.5rem;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    nav a {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
+    nav a.nav-bold { font-weight: 700; }
+    nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
+
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .sidebar-social a {
+      color: #111;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 300px;
+      flex: 1;
+      padding: 4rem 4rem 6rem 4rem;
+      max-width: 800px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── HERO ── */
+    .case-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .case-cover {
+      width: 100%;
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: hsl(9, 63%, 65%);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body strong { color: #111; font-weight: 700; }
+
+    /* ── IMAGES ── */
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
+
+    /* ── CAPTION ── */
+    .caption {
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: 400;
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid #e8e8e8; margin: 3rem 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative; width: 100%; height: auto;
+        padding: 2rem 2rem 1.5rem 2.5rem;
+        flex-direction: column; border-bottom: 1px solid #eee;
+      }
+      .sidebar-name { margin-bottom: 2rem; }
+      .sidebar-social { margin-top: 2rem; }
+      main { margin-left: 0; padding: 1.5rem; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-name">
+      <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
+    </div>
+    <p class="sidebar-title">Product Designer<br/>Associate RGD</p>
+    <nav>
+      <a href="index.html" class="active">Work</a>
+      <a href="resume.pdf" target="_blank" class="nav-bold">Resume</a>
+      <a href="about.html" class="nav-gap nav-small">About</a>
+      <a href="etc.html" class="nav-small">Etc.</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/aviss-kejia-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
+        <i class="bi bi-instagram" style="font-size:20px;"></i>
+      </a>
+      <a href="mailto:aviszkj@hotmail.com" aria-label="Email">
+        <i class="bi bi-envelope" style="font-size:20px;"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <h1 class="case-title">Creative UI Design</h1>
+    <p class="case-subtitle">A collection of personal UI design explorations — spanning apps and websites — focused on aesthetics, visual composition, and creative expression.</p>
+
+    <img src="images/creative-ui/Cover.webp" alt="Creative UI Design Cover" class="case-cover" />
+
+    <!-- CONTEXT -->
+    <div class="section">
+      <p class="section-label">Context</p>
+      <p class="section-body">Outside of my main projects, I enjoy exploring creative UI design for apps and websites. These are not full-scale case studies — they focus on the aesthetic side of design: experimenting with color combinations, typography, layout composition, and visual hierarchy to create visually compelling interfaces.</p>
+      <p class="section-body">These explorations help me develop and sharpen skills in visual design, color theory, and intuitive UI composition — skills that directly inform my broader UI/UX practice.</p>
+    </div>
+
+    <!-- CREATIVE UI DESIGN -->
+    <div class="section">
+      <p class="section-label">Creative UI Design</p>
+
+      <img src="images/creative-ui/Course-hub.webp" alt="Online Design Course Hub UI" class="img-full" />
+      <p class="caption">Online Design Course Hub UI</p>
+
+      <img src="images/creative-ui/Mengyi-1.webp" alt="Interdisciplinary Artist Mengyi Zhou's Website" class="img-full" />
+      <p class="caption">Interdisciplinary Artist Mengyi Zhou's Website</p>
+
+      <img src="images/creative-ui/Mengyi-2.webp" alt="Interdisciplinary Artist Mengyi Zhou's Website" class="img-full" />
+      <p class="caption">Interdisciplinary Artist Mengyi Zhou's Website</p>
+
+      <img src="images/creative-ui/Lumia-website.webp" alt="Lumia NFT Website" class="img-full" />
+      <p class="caption">Lumia NFT Website</p>
+
+      <img src="images/creative-ui/Iceland-website.webp" alt="Iceland Travel Guide Website" class="img-full" />
+      <p class="caption">Iceland Travel Guide Website</p>
+
+      <img src="images/creative-ui/Iceland-app.webp" alt="Iceland Travel Guide App" class="img-full" />
+      <p class="caption">Iceland Travel Guide App</p>
+
+      <img src="images/creative-ui/Shaxi.webp" alt="Shaxi Ancient Town Website" class="img-full" />
+      <p class="caption">Shaxi Ancient Town Website</p>
+
+      <img src="images/creative-ui/Portfolio.webp" alt="Portfolio Website" class="img-full" />
+      <p class="caption">Portfolio Website</p>
+    </div>
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <p class="section-label">Outcomes</p>
+      <p class="section-body">These personal UI explorations complement my design portfolio by showcasing visual sensibility, creativity, and attention to detail beyond the constraints of client work. More than anything, they're a space for self-expression — a way to explore personal style, aesthetic preferences, and design instincts freely.</p>
+    </div>
+
+    <!-- BACK TO WORK BOTTOM -->
+    <div style="padding: 3rem 0 1rem;">
+      <a href="index.html" class="back-link">← Back to Work</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
