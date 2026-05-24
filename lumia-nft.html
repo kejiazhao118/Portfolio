@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumia NFT — AVISS KEJIA ZHAO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: "Konstant Grotesk";
+      src: url("KonstantGrotesk.otf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2.5rem 1.5rem 2.5rem 3.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.5;
+      font-family: "Konstant Grotesk", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-name a { color: #111; }
+
+    .sidebar-title {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #111;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      margin-top: -1.5rem;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    nav a {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
+    nav a.nav-bold { font-weight: 700; }
+    nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
+
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .sidebar-social a {
+      color: #111;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 300px;
+      flex: 1;
+      padding: 4rem 4rem 6rem 4rem;
+      max-width: 800px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── HERO ── */
+    .case-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .case-cover {
+      width: 100%;
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: hsl(9, 63%, 65%);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body strong { color: #111; font-weight: 700; }
+
+    /* ── IMAGES ── */
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
+
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-2 img { width: 100%; display: block; }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .img-grid-3 img { width: 100%; display: block; }
+
+    /* ── CAPTION ── */
+    .caption {
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: 400;
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── LIST ── */
+    .section-list {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.25rem 1.5rem;
+      padding: 0;
+    }
+
+    .section-list li { margin-bottom: 0.75rem; }
+
+    .subsection-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 1.25rem;
+      margin-top: 0;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid #e8e8e8; margin: 3rem 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative; width: 100%; height: auto;
+        padding: 2rem 2rem 1.5rem 2.5rem;
+        flex-direction: column; border-bottom: 1px solid #eee;
+      }
+      .sidebar-name { margin-bottom: 2rem; }
+      .sidebar-social { margin-top: 2rem; }
+      main { margin-left: 0; padding: 1.5rem; max-width: 100%; }
+      .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-name">
+      <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
+    </div>
+    <p class="sidebar-title">Product Designer<br/>Associate RGD</p>
+    <nav>
+      <a href="index.html" class="active">Work</a>
+      <a href="resume.pdf" target="_blank" class="nav-bold">Resume</a>
+      <a href="about.html" class="nav-gap nav-small">About</a>
+      <a href="etc.html" class="nav-small">Etc.</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/aviss-kejia-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
+        <i class="bi bi-instagram" style="font-size:20px;"></i>
+      </a>
+      <a href="mailto:aviszkj@hotmail.com" aria-label="Email">
+        <i class="bi bi-envelope" style="font-size:20px;"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <h1 class="case-title">Lumia NFT Marketplace Mobile App</h1>
+    <p class="case-subtitle">A passion project designing a dedicated NFT marketplace mobile app — from UX research and branding to high-fidelity UI and prototype.</p>
+
+    <img src="images/lumia-nft/Cover.webp" alt="Lumia NFT Marketplace Mobile App" class="case-cover" />
+
+    <!-- CONTEXT -->
+    <div class="section">
+      <p class="section-label">Context</p>
+      <p class="section-body">Having worked in the cryptocurrency industry, topics around blockchain, crypto, and NFTs were part of my daily work. NFT (non-fungible token) is a unique digital identifier recorded on a blockchain that certifies ownership and authenticity — it cannot be copied, substituted, or subdivided, and its ownership can be transferred, enabling NFTs to be bought, sold, and traded.</p>
+      <p class="section-body">As the global crypto market grew, many trading platforms began developing their own NFT platforms to meet demand for buying, selling, collecting, and trading digital assets. Our company was also building an NFT platform — web-based but responsive on mobile.</p>
+      <p class="section-body">This passion project explores what a dedicated mobile app version of that platform could look like. The primary goal: a focused NFT marketplace that makes it easy for users to engage with digital assets in a clean, intuitive experience.</p>
+    </div>
+
+
+    <!-- UX RESEARCH -->
+    <div class="section">
+      <p class="section-label">UX Research</p>
+      <p class="section-body">The project began with comprehensive research into the existing NFT app landscape — studying competitor platforms, analyzing user reviews, and identifying trends in customer needs and pain points.</p>
+
+      <p class="section-body" style="margin-top: 1.5rem;"><strong>Competitor Analysis — OpenSea</strong></p>
+      <p class="section-body">OpenSea was chosen as the primary competitor for analysis, as it is widely recognized as the world's first and largest digital marketplace for crypto collectibles and NFTs. I explored their website thoroughly and downloaded their app, completing several usability tasks — including attempting an NFT purchase, searching for specific pieces, and finding seller information.</p>
+      <p class="section-body">The goal of competitor analysis is to understand where a product stands in the market, identify usability gaps, inform design decisions, and build reliable evidence for product direction. Through this process, I found that OpenSea's vast inventory made the purchasing flow feel unnecessarily complex and multi-stepped. This became a key design direction for Lumia: <strong>simplify the NFT purchasing process and create a genuinely user-friendly experience.</strong></p>
+      <img src="images/lumia-nft/Competitor.webp" alt="OpenSea Competitor Analysis" class="img-full" />
+
+      <p class="section-body" style="margin-top: 1.5rem;"><strong>Customer Reviews</strong></p>
+      <p class="section-body">Reviewing OpenSea's user feedback provided direct insight into what users value and where frustrations arise — informing the design decisions for Lumia's key flows.</p>
+      <img src="images/lumia-nft/Review-1.webp" alt="OpenSea Review 1" class="img-full" />
+      <img src="images/lumia-nft/Review-2.webp" alt="OpenSea Review 2" class="img-full" />
+      <img src="images/lumia-nft/Review-3.webp" alt="OpenSea Review 3" class="img-full" />
+      <img src="images/lumia-nft/Review-4.webp" alt="OpenSea Review 4" class="img-full" />
+
+      <p class="section-body" style="margin-top: 1.5rem;"><strong>User Personas</strong></p>
+      <p class="section-body">Two user personas were created to represent the target audience — helping to empathize with real users, communicate research findings, and guide design decisions toward meeting specific user needs.</p>
+      <img src="images/lumia-nft/Persona-1.webp" alt="User Persona James" class="img-full" />
+      <img src="images/lumia-nft/Persona-2.webp" alt="User Persona Joanne" class="img-full" />
+    </div>
+
+
+    <!-- DESIGN PROCESS -->
+    <div class="section">
+      <p class="section-label">Design Process</p>
+
+      <p class="section-body"><strong>Information Architecture</strong></p>
+      <p class="section-body">Information architecture (IA) is a foundational step in the design process — organizing content, structuring the app, and ensuring users can navigate intuitively to find what they need. The IA chart maps common features into content groups, linking related pages and establishing a clear hierarchy across the app.</p>
+      <img src="images/lumia-nft/IA.webp" alt="Information Architecture" class="img-full" />
+
+      <p class="section-body" style="margin-top: 2rem;"><strong>Low-Fidelity Wireframes</strong></p>
+      <p class="section-body">Wireframes translate the information architecture and user flow into a visual structure — focusing on layout, navigation, and hierarchy without getting into visual detail. This step helps validate the overall structure before investing in high-fidelity design.</p>
+      <img src="images/lumia-nft/Wireframe-1.webp" alt="Wireframe 1" class="img-full" />
+      <img src="images/lumia-nft/Wireframe-2.webp" alt="Wireframe 2" class="img-full" />
+      <img src="images/lumia-nft/Wireframe-3.webp" alt="Wireframe 3" class="img-full" />
+
+      <p class="section-body" style="margin-top: 2rem;"><strong>Branding & Design System</strong></p>
+      <p class="section-body">Branding plays a central role in creating a distinct identity for the app. The Lumia NFT brand was built around five key components:</p>
+      <ul class="section-list">
+        <li><strong>Name</strong> — "Lumia NFT" serves as the primary identifier, distinguishing it within the market</li>
+        <li><strong>Logo</strong> — a visual representation of the app's identity: recognizable, purposeful, and tied to the world of digital art</li>
+        <li><strong>Typography</strong> — chosen to reinforce the app's visual personality and ensure readability</li>
+        <li><strong>Color Palette</strong> — aligned with the app's purpose and target audience, including primary, secondary, and accent colors</li>
+        <li><strong>Visual Design</strong> — icons, illustrations, and graphic elements that create a cohesive, polished interface</li>
+      </ul>
+      <img src="images/lumia-nft/Branding.webp" alt="Branding Overview" class="img-full" />
+
+      <p class="section-body">The logo uses the letter "L" as its base, connected to a square representing a pixel — a nod to the fundamental building blocks of digital art and NFT collections like CryptoPunks. After evaluating multiple versions, the final logo rounds the bottom corner of the "L" and uses a distinct color for the square to improve visibility. All letterforms are consistent in size, font, and spacing. Both light and dark mode versions were created to ensure optimal visibility across interface settings.</p>
+      <img src="images/lumia-nft/Logo-exploration.webp" alt="Logo Exploration" class="img-full" />
+      <img src="images/lumia-nft/Logo.webp" alt="Final Logo" class="img-full" />
+      <img src="images/lumia-nft/Typography.webp" alt="Typography" class="img-full" />
+      <img src="images/lumia-nft/Color.webp" alt="Color Palette" class="img-full" />
+      <img src="images/lumia-nft/UI-kit.webp" alt="UI Kit" class="img-full" />
+    </div>
+
+
+    <!-- HIGH FIDELITY -->
+    <div class="section">
+      <p class="section-label">High-Fidelity UI Design</p>
+      <p class="section-body">Lumia's overall UI follows a minimalist approach — white background, black typography and buttons — creating strong contrast that enhances readability and lets the NFT artwork take centre stage. Waves and planet motifs representing the concept of digital space appear selectively on less information-dense pages, keeping the interface clean and uncluttered. Given that NFTs often feature a wide range of colors, keeping the surrounding UI simple ensures users can focus on the artwork and essential information without distraction.</p>
+
+      <img src="images/lumia-nft/UI-authorization.webp" alt="Authorization Screens" class="img-full" />
+      <p class="caption">Authorization</p>
+      <img src="images/lumia-nft/UI-wallet.webp" alt="Wallet Connection Screens" class="img-full" />
+      <p class="caption">Wallet Connection</p>
+      <img src="images/lumia-nft/UI-homepage.webp" alt="Home Page Screens" class="img-full" />
+      <p class="caption">Home Page</p>
+      <img src="images/lumia-nft/UI-product.webp" alt="Product Page Screens" class="img-full" />
+      <p class="caption">Product Page</p>
+      <img src="images/lumia-nft/UI-purchasing.webp" alt="Purchasing Screens" class="img-full" />
+      <p class="caption">Purchasing</p>
+      <img src="images/lumia-nft/UI-seller.webp" alt="Seller Page and Activity Screens" class="img-full" />
+      <p class="caption">Seller's Page & Activity</p>
+      <img src="images/lumia-nft/UI-settings.webp" alt="Settings Screens" class="img-full" />
+      <p class="caption">Settings</p>
+
+      <p class="section-body" style="margin-top: 2rem;"><strong>Individual Screens</strong></p>
+      <div class="img-grid-3">
+        <img src="images/lumia-nft/Screen-1.webp" alt="Screen 1" />
+        <img src="images/lumia-nft/Screen-2.webp" alt="Screen 2" />
+        <img src="images/lumia-nft/Screen-3.webp" alt="Screen 3" />
+      </div>
+      <div class="img-grid-3">
+        <img src="images/lumia-nft/Screen-4.webp" alt="Screen 4" />
+        <img src="images/lumia-nft/Screen-5.webp" alt="Screen 5" />
+        <img src="images/lumia-nft/Screen-6.webp" alt="Screen 6" />
+      </div>
+      <div class="img-grid-3">
+        <img src="images/lumia-nft/Screen-7.webp" alt="Screen 7" />
+        <img src="images/lumia-nft/Screen-8.webp" alt="Screen 8" />
+        <img src="images/lumia-nft/Screen-9.webp" alt="Screen 9" />
+      </div>
+      <div class="img-grid-3">
+        <img src="images/lumia-nft/Screen-10.webp" alt="Screen 10" />
+        <img src="images/lumia-nft/Screen-11.webp" alt="Screen 11" />
+        <img src="images/lumia-nft/Screen-12.webp" alt="Screen 12" />
+      </div>
+      <div class="img-grid-3">
+        <img src="images/lumia-nft/Screen-13.webp" alt="Screen 13" />
+        <img src="images/lumia-nft/Screen-14.webp" alt="Screen 14" />
+        <img src="images/lumia-nft/Screen-15.webp" alt="Screen 15" />
+      </div>
+    </div>
+
+
+    <!-- APP MOCKUPS -->
+    <div class="section">
+      <p class="section-label">App Mockups</p>
+      <img src="images/lumia-nft/Mockup-1.webp" alt="App Mockup 1" class="img-full" />
+      <img src="images/lumia-nft/Mockup-2.webp" alt="App Mockup 2" class="img-full" />
+      <img src="images/lumia-nft/Mockup-3.webp" alt="App Mockup 3" class="img-full" />
+      <img src="images/lumia-nft/Mockup-4.webp" alt="App Mockup 4" class="img-full" />
+      <img src="images/lumia-nft/Mockup-5.webp" alt="App Mockup 5" class="img-full" />
+      <img src="images/lumia-nft/Mockup-6.webp" alt="App Mockup 6" class="img-full" />
+    </div>
+
+
+    <!-- PROTOTYPE -->
+    <div class="section">
+      <p class="section-label">High-Fidelity Prototype</p>
+      <img src="images/lumia-nft/Prototype.webp" alt="Prototype Preview" class="img-full" />
+      <p class="section-body">→ <a href="https://www.figma.com/file/qc8DZW0E5dCr9fUVnZy44x/Lumia-NFT-App?node-id=124%3A27939&t=vGogKBtNNEiX4ju2-1&type=design" target="_blank" style="color: hsl(9, 63%, 65%);">View Lumia NFT Marketplace Mobile App Prototype</a></p>
+    </div>
+
+
+    <!-- USABILITY STUDIES -->
+    <div class="section">
+      <p class="section-label">Usability Studies</p>
+      <p class="section-body">Usability studies were conducted to uncover areas requiring revision based on the current prototype. By observing participants interacting with the app, their feedback provided valuable insights to guide further iteration.</p>
+      <ul class="section-list">
+        <li>Search bars are not yet available</li>
+        <li>The home page product carousel is not yet available</li>
+        <li>The purchasing flow is straightforward with clear, essential selections</li>
+        <li>Creating an NFT — a major feature — still needs to be designed and developed</li>
+        <li>Collection sections are not yet available</li>
+      </ul>
+      <p class="section-body">Both pros and cons were reviewed with participants. This feedback will guide future iterations — usability studies are a critical part of the design process, helping identify issues before the design is finalized and ensuring the product continues to improve through each cycle.</p>
+    </div>
+
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <p class="section-label">Outcomes</p>
+      <p class="section-body">Lumia NFT has been an engaging and multifaceted passion project — spanning ideation, UX research, branding, UI design, and prototyping. Working on it deepened my understanding of NFT market dynamics and gave me insight into what users genuinely want from a digital asset marketplace.</p>
+      <p class="section-body">The project also sharpened my design thinking and hands-on skills across every phase of the process. Lumia NFT is an ongoing project — one I'm committed to continuing and building on over time.</p>
+    </div>
+
+
+    <!-- BACK TO WORK BOTTOM -->
+    <div style="padding: 3rem 0 1rem;">
+      <a href="index.html" class="back-link">← Back to Work</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
