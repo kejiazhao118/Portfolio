@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Usability Testing for WeChat — AVISS KEJIA ZHAO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: "Konstant Grotesk";
+      src: url("KonstantGrotesk.otf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2.5rem 1.5rem 2.5rem 3.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.5;
+      font-family: "Konstant Grotesk", "Helvetica Neue", sans-serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-name a { color: #111; }
+
+    .sidebar-title {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #111;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      margin-top: -1.5rem;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    nav a {
+      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
+    nav a.nav-bold { font-weight: 700; }
+    nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
+
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .sidebar-social a {
+      color: #111;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s;
+    }
+
+    .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 300px;
+      flex: 1;
+      padding: 4rem 4rem 6rem 4rem;
+      max-width: 800px;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 3rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: hsl(9, 63%, 65%); }
+
+    /* ── HERO ── */
+    .case-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 100%;
+    }
+
+    .case-cover {
+      width: 100%;
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: hsl(9, 63%, 65%);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body strong { color: #111; font-weight: 700; }
+
+    .subsection-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ── IMAGES ── */
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
+
+    /* ── LIST ── */
+    .section-list {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.25rem 1.5rem;
+      padding: 0;
+    }
+
+    .section-list li { margin-bottom: 0.75rem; }
+
+    .task-list {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #333;
+      margin: 0 0 1.25rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .task-list li {
+      margin-bottom: 1rem;
+      padding-left: 0;
+    }
+
+    .task-list li strong { color: #111; }
+
+    .task-criteria {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.2rem;
+    }
+
+    /* ── CAPTION ── */
+    .caption {
+      font-size: 0.8rem;
+      color: #888;
+      font-weight: 400;
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      .sidebar {
+        position: relative; width: 100%; height: auto;
+        padding: 2rem 2rem 1.5rem 2.5rem;
+        flex-direction: column; border-bottom: 1px solid #eee;
+      }
+      .sidebar-name { margin-bottom: 2rem; }
+      .sidebar-social { margin-top: 2rem; }
+      main { margin-left: 0; padding: 1.5rem; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-name">
+      <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
+    </div>
+    <p class="sidebar-title">Product Designer<br/>Associate RGD</p>
+    <nav>
+      <a href="index.html" class="active">Work</a>
+      <a href="resume.pdf" target="_blank" class="nav-bold">Resume</a>
+      <a href="about.html" class="nav-gap nav-small">About</a>
+      <a href="etc.html" class="nav-small">Etc.</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/aviss-kejia-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
+        <i class="bi bi-instagram" style="font-size:20px;"></i>
+      </a>
+      <a href="mailto:aviszkj@hotmail.com" aria-label="Email">
+        <i class="bi bi-envelope" style="font-size:20px;"></i>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <h1 class="case-title">Usability Testing for WeChat</h1>
+    <p class="case-subtitle">A full usability study of the WeChat mobile app for Canadian users — from test plan and participant recruitment to task analysis and final reporting.</p>
+
+    <img src="images/usability-wechat/Cover.webp" alt="Usability Testing for WeChat" class="case-cover" />
+
+    <!-- CONTEXT -->
+    <div class="section">
+      <p class="section-label">Context</p>
+      <p class="section-body">WeChat is a super-app developed by Tencent, combining messaging, social media, and mobile payment into a single platform. Widely known as China's "app for everything," it has begun expanding into the North American market — most notably through WeChat Pay's partnership with Citcon, enabling Canadian businesses to accept WeChat Pay.</p>
+      <p class="section-body">As the app enters new markets, assessing its usability for Canadian users becomes essential. <strong>The purpose of this study was to conduct usability testing on the WeChat app in Canada and gather insights to improve its usability for this audience.</strong></p>
+      <p class="section-body">The study observed and recorded how well participants completed twelve predefined tasks within the app — measuring satisfaction, identifying frustrations, and surfacing design concerns alongside the app's strengths.</p>
+    </div>
+
+    <!-- GOALS -->
+    <div class="section">
+      <p class="section-label">Goals</p>
+      <img src="images/usability-wechat/Goals.webp" alt="Usability Testing Goals" class="img-full" />
+
+      <p class="subsection-title">Goal 1 — Learnability</p>
+      <p class="section-body">To assess the learnability of the app's core functionalities among first-time users, including the time taken and number of clicks required to complete each task.</p>
+
+      <p class="subsection-title">Goal 2 — Frustration & Design Concerns</p>
+      <p class="section-body">To identify participants' frustrations, challenges, and concerns with the app's interface design and information architecture.</p>
+
+      <p class="section-body" style="margin-top: 1.5rem;">The usability test included task performance assessments, post-task questionnaires, and one-on-one post-test interviews. Findings were analyzed to recommend improvements that better align WeChat with the needs and expectations of Canadian users.</p>
+    </div>
+
+    <!-- RESEARCH QUESTIONS -->
+    <div class="section">
+      <p class="section-label">Research Questions</p>
+      <img src="images/usability-wechat/Research-questions.webp" alt="Research Questions" class="img-full" />
+      <ul class="section-list">
+        <li>How easily do participants understand what the app is?</li>
+        <li>How easily do participants register for the app?</li>
+        <li>How easily do participants start to explore the core functionalities?</li>
+        <li>How well do participants understand the symbols and icons?</li>
+        <li>Is there an appropriate balance of ease of use and ease of learning?</li>
+      </ul>
+    </div>
+
+    <!-- PARTICIPANTS -->
+    <div class="section">
+      <p class="section-label">Participants</p>
+      <img src="images/usability-wechat/Participants.webp" alt="Participants" class="img-full" />
+      <p class="section-body">Five participants were recruited — all with zero or minimal prior experience using WeChat, and all intermediate to advanced mobile technology users. Participants were primarily classmates or coworkers.</p>
+      <p class="section-body">Recruiting criteria were based on familiarity with the app, mobile technology experience, and general comfort with smartphones. All participants owned a smartphone (iPhone or Android) and knew how to download apps.</p>
+      <p class="section-body">By recruiting participants with a range of mobile technology experience, the study was able to better understand varying user needs, expectations, and motivations — and determine whether the app's design is functional, meaningful, and enjoyable.</p>
+    </div>
+
+    <!-- PROCEDURE -->
+    <div class="section">
+      <p class="section-label">Procedure</p>
+      <img src="images/usability-wechat/Procedure.webp" alt="Procedure" class="img-full" />
+      <p class="section-body">Tests were conducted at various locations based on participant availability. Participants used their own smartphones to complete the tasks, keeping the experience as natural as possible. I sat beside each participant, providing instructions and acting as both moderator and note-taker — observing and recording behaviours throughout.</p>
+      <p class="section-body">All sessions were video recorded. Before the test began, participants signed a consent form and received a brief overview of the app and the testing process. Tasks were read aloud one at a time. At the end of each task, participants completed a short questionnaire. After all tasks were completed, a one-on-one interview was conducted.</p>
+    </div>
+
+    <!-- DATA COLLECTION -->
+    <div class="section">
+      <p class="section-label">Data Collection</p>
+      <p class="section-body">As note-taker and moderator, I documented participant responses, comments, and observed behaviours throughout each session. A task list was provided as a reference, and the percentage of tasks completed successfully was calculated for each participant.</p>
+      <p class="section-body">A rubric was used to measure basic usability metrics against the app's existing build. This ensured consistent data collection across all five sessions.</p>
+    </div>
+
+    <!-- TASK LIST -->
+    <div class="section">
+      <p class="section-label">Task List</p>
+      <img src="images/usability-wechat/Task-list.webp" alt="Task List" class="img-full" />
+      <p class="section-body">Participants completed twelve tasks designed to test the app's accessibility and learnability, as well as to identify friction points in the interface and information architecture.</p>
+
+      <ol class="task-list">
+        <li>
+          <strong>Task 1 — Download the app</strong>
+          <p class="task-criteria">Find the app in the app store and successfully download it.</p>
+        </li>
+        <li>
+          <strong>Task 2 — Sign up</strong>
+          <p class="task-criteria">Open the app, tap sign up, and complete both steps to create a new account.</p>
+        </li>
+        <li>
+          <strong>Task 3 — Get to the home page</strong>
+          <p class="task-criteria">Sign in and navigate to the home page.</p>
+        </li>
+        <li>
+          <strong>Task 4 — Build the profile</strong>
+          <p class="task-criteria">Find "My Profile," upload an image, and complete the profile fields.</p>
+        </li>
+        <li>
+          <strong>Task 5 — Add a new contact</strong>
+          <p class="task-criteria">Find "Add Contacts" and add the provided WeChat number.</p>
+        </li>
+        <li>
+          <strong>Task 6 — Send various messages</strong>
+          <p class="task-criteria">Send a voice message, an image, and an emoji to the added contact.</p>
+        </li>
+        <li>
+          <strong>Task 7 — Post a Moment</strong>
+          <p class="task-criteria">Navigate to Moments, upload an image with a short description, and post it.</p>
+        </li>
+        <li>
+          <strong>Task 8 — View a contact's album</strong>
+          <p class="task-criteria">Find the newly added contact, navigate to their profile, and open their Album.</p>
+        </li>
+        <li>
+          <strong>Task 9 — Leave a comment</strong>
+          <p class="task-criteria">Browse the contact's Moments and leave a comment on any post.</p>
+        </li>
+        <li>
+          <strong>Task 10 — Find "Message in a Bottle"</strong>
+          <p class="task-criteria">Locate the hidden feature, pick up a bottle, and throw it back or reply.</p>
+        </li>
+        <li>
+          <strong>Task 11 — Set up Privacy</strong>
+          <p class="task-criteria">Navigate to account settings, find Privacy, and turn on Friend Confirmation.</p>
+        </li>
+        <li>
+          <strong>Task 12 — Find the Language setting</strong>
+          <p class="task-criteria">Navigate to General settings and locate the Language option.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- POST-TEST -->
+    <div class="section">
+      <p class="section-label">Post-Test Questionnaire & Interview</p>
+      <img src="images/usability-wechat/Post-test.webp" alt="Post-Test Questionnaire" class="img-full" />
+      <p class="section-body">After completing all tasks, participants filled out a mixed questionnaire — combining multiple choice and open-ended questions — to share their overall experience and rate their satisfaction with the app. This gave participants a structured opportunity to reflect on whether the app felt functional, meaningful, and useful.</p>
+      <p class="section-body">A one-on-one interview followed, allowing for a more open conversation about each participant's experience and impressions of WeChat. Completion time for each of the twelve tasks was also recorded to measure task speed, identify errors, and pinpoint areas of frustration.</p>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section">
+      <p class="section-label">Reporting Results</p>
+      <img src="images/usability-wechat/Results.webp" alt="Reporting Results" class="img-full" />
+      <p class="section-body">At the conclusion of testing, a final report and poster were developed summarizing all findings, an evaluation against the original usability goals, and recommendations for future improvements.</p>
+      <ul class="section-list">
+        <li>Participants completed most of the 12 tasks effectively, though several caused notable confusion.</li>
+        <li><strong>80% of participants failed the voice message task</strong> — they were unaware that the phone needed to be held closer to the speaker to capture audio, leading to repeated failures and frustration.</li>
+        <li>Hidden features were difficult to discover, creating friction for first-time users.</li>
+        <li>Similarly labelled functions — such as voice call, voice input, and voice message — caused confusion due to overlapping terminology.</li>
+        <li>Half of the participants landed on incorrect pages multiple times before successfully completing tasks.</li>
+        <li>Despite these issues, participants found WeChat easy to navigate overall and gave positive feedback — particularly about features not found in comparable apps.</li>
+      </ul>
+    </div>
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <p class="section-label">Outcomes</p>
+      <p class="section-body">This project provided hands-on experience conducting a full usability study from start to finish — developing a test plan, recruiting participants, moderating sessions, collecting data, and synthesizing findings into actionable recommendations.</p>
+      <p class="section-body">The process deepened my understanding of how real users interact with complex, feature-rich apps, and how small design decisions — labelling, discoverability, and information architecture — can significantly impact the user experience. Observing participants struggle with hidden features and similarly named functions reinforced the importance of clarity and consistency in interface design.</p>
+      <p class="section-body">Most importantly, this study demonstrated that usability testing is not just about finding problems — it's about understanding the gap between what designers intend and what users actually experience.</p>
+    </div>
+
+    <!-- BACK TO WORK BOTTOM -->
+    <div style="padding: 3rem 0 1rem;">
+      <a href="index.html" class="back-link">← Back to Work</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
