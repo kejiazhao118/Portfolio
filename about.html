@@ -133,7 +133,7 @@
     .about-bio p strong { color: #111; font-weight: 700; }
 
     /* ── SECTIONS ── */
-    .section { margin-bottom: 3.5rem; }
+    .section { margin-bottom: 4rem; }
 
     .section-label {
       font-size: 0.8rem;
@@ -143,6 +143,8 @@
       color: hsl(9, 63%, 65%);
       margin-bottom: 1.25rem;
     }
+
+    .section-label-sm { margin-bottom: 0.85rem; }
 
     .section-body {
       font-size: 0.95rem;
@@ -208,7 +210,7 @@
       border-bottom: 0.5px solid #f0f0f0;
     }
 
-    .expertise-list li:last-child { border-bottom: none; }
+    .expertise-list li:last-child { border-bottom: none; padding-bottom: 0; }
 
     .expertise-label {
       font-weight: 700;
@@ -221,18 +223,34 @@
     }
 
     /* ── CREDENTIALS ── */
-    .credential-link {
-      display: inline-flex;
+    .credential-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .credential-list li {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2.5rem;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.9rem;
+      padding: 1.1rem 0;
+      border-bottom: 0.5px solid #f0f0f0;
+      font-size: 0.95rem;
+    }
+
+    .credential-list li:last-child { border-bottom: none; }
+
+    .credential-list li span { font-weight: 700; color: #111; }
+
+    .credential-list li a {
+      font-size: 0.85rem;
       color: hsl(9, 63%, 65%);
       font-weight: 700;
       transition: opacity 0.15s;
-      margin-top: 0.25rem;
     }
 
-    .credential-link:hover { opacity: 0.7; }
+    .credential-list li a:hover { opacity: 0.7; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -326,19 +344,13 @@
 
     <!-- CREDENTIALS -->
     <div class="section">
-      <p class="section-label">Credentials</p>
-
-      <div class="section-body"><strong>Associate RGD Certificate</strong></div>
-      <a href="Associate-RGD.pdf" target="_blank" class="credential-link">View Certificate →</a>
-
-      <div class="section-body" style="margin-top: 1.5rem;"><strong>Google UX Design Certificate</strong></div>
-      <a href="Google-UX-Design.pdf" target="_blank" class="credential-link">View Certificate →</a>
-
-      <div class="section-body" style="margin-top: 1.5rem;"><strong>2020 RGD Graduate Award</strong></div>
-      <a href="RGD-Grad-Award.png" target="_blank" class="credential-link">View Award →</a>
-
-      <div class="section-body" style="margin-top: 1.5rem;"><strong>2023 PLAR Award</strong></div>
-      <a href="PLAR-Award.pdf" target="_blank" class="credential-link">View Award →</a>
+      <p class="section-label section-label-sm">Credentials</p>
+      <ul class="credential-list">
+        <li><span>Associate RGD Certificate</span><a href="credentials/Associate-RGD.pdf" target="_blank">View →</a></li>
+        <li><span>Google UX Design Certificate</span><a href="credentials/Google-UX-Design.pdf" target="_blank">View →</a></li>
+        <li><span>2020 RGD Graduate Award</span><a href="credentials/RGD-Grad-Award.png" target="_blank">View →</a></li>
+        <li><span>2023 PLAR Award</span><a href="credentials/PLAR-Award.pdf" target="_blank">View →</a></li>
+      </ul>
     </div>
 
   </main>
