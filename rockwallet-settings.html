@@ -295,27 +295,21 @@
     <div class="section">
       <p class="section-label" style="margin-top: 2.5rem;">Design Process — A selection of key design decisions that shaped the flow.</p>
 
-      <img src="images/rock-wallet/settings-flows/Entry-point-email.webp" alt="Entry point for email" class="img-full" />
-
-      <img src="images/rock-wallet/settings-flows/Email-design-decision-1.webp" alt="Email design decision 1" class="img-full" />
-
       <p class="subsection-title">Scalable Entry Point Design</p>
       <p class="section-body">To support both the email and phone update flows, I introduced a tappable "Edit" button at the top-right of the "Contact Info" card — creating a single, consistent entry point for both flows. This approach was designed with scalability in mind: the same pattern can be extended to the "Profile Address" section in the future, keeping the Settings experience unified and predictable as the product grows.</p>
+      <img src="images/rock-wallet/settings-flows/Entry-point-email.webp" alt="Entry point for email" class="img-full" />
 
       <p class="subsection-title">Leveraging the Design System</p>
       <p class="section-body">The bottom sheet component already existed in the design system, making it a natural choice for this flow. Reusing it ensured visual and interaction consistency across the app, while keeping the implementation efficient for the development team. It's also scalable — new content or options can be added in the future without requiring a new pattern.</p>
-
-      <img src="images/rock-wallet/settings-flows/24hr-cooldown-notification.webp" alt="24hr cooldown notification" class="img-full" />
+      <img src="images/rock-wallet/settings-flows/Email-design-decision-1.webp" alt="Email design decision 1" class="img-full" />
 
       <p class="subsection-title">Communicating the 24-Hour Cooldown</p>
       <p class="section-body">For compliance reasons, a 24-hour cooldown is enforced after a successful email update — users cannot send or withdraw funds off-platform during this window.</p>
       <p class="section-body">To ensure users are never caught off guard, I added two layers of communication: an inline notification visible on the email update screen, and a bottom sheet that appears when the user taps "Verify Email" — acting as a pre-confirmation step before they commit. This way, users understand the restriction upfront and can plan around it before tapping "Update Anyway."</p>
+      <img src="images/rock-wallet/settings-flows/24hr-cooldown-notification.webp" alt="24hr cooldown notification" class="img-full" />
 
       <p class="subsection-title">A Note on the Design System</p>
       <p class="section-body">While working through the flow, I noticed that the existing disabled state text was difficult to read — the contrast was insufficient for comfortable legibility. Rather than blocking the flow's progress, I flagged this as a design system improvement to address later: introducing a lighter, more legible color treatment for disabled states across the product. The flow remained the priority, but this observation was noted for future iteration.</p>
-
-      <img src="images/rock-wallet/settings-flows/Valid-invalid-email.webp" alt="Valid and invalid email" class="img-full" />
-      <img src="images/rock-wallet/settings-flows/Resend-limit-rule.webp" alt="Resend limit rule" class="img-full" />
 
       <p class="subsection-title">Maintaining Consistency with Onboarding Patterns</p>
       <p class="section-body">Three key decisions were made to ensure consistency across the product:</p>
@@ -324,20 +318,18 @@
         <li><strong>Server-side validation</strong> — since email addresses are validated on the backend, the same flow pattern developed during onboarding was followed, ensuring a consistent experience across both contexts</li>
         <li><strong>Resend OTP limit</strong> — the resend limit follows the same rules established during onboarding: 1 initial send, up to 3 resends, and a 1-hour lockout once the limit is reached — keeping security behaviour consistent across all verification flows in the app</li>
       </ul>
+      <img src="images/rock-wallet/settings-flows/Valid-invalid-email.webp" alt="Valid and invalid email" class="img-full" />
+      <img src="images/rock-wallet/settings-flows/Resend-limit-rule.webp" alt="Resend limit rule" class="img-full" />
 
+      <p class="subsection-title">Defining Edge Cases</p>
+      <p class="section-body">Beyond the happy path, three key edge cases were identified and designed for to ensure the flow remained robust and user-friendly under unexpected conditions: an invalid OTP entry, a network error during verification, and an expired code. Each case was accounted for with clear feedback and recovery options, so users always knew what went wrong and how to proceed.</p>
       <img src="images/rock-wallet/settings-flows/Edge-cases-email.webp" alt="Edge cases" class="img-full" />
       <img src="images/rock-wallet/settings-flows/Input-Invalid-OTP.webp" alt="Input Invalid OTP Cases" class="img-full" />
       <img src="images/rock-wallet/settings-flows/Edge-cases-2.webp" alt="Edge cases 2" class="img-full" />
 
-      <p class="subsection-title">Defining Edge Cases</p>
-      <p class="section-body">Beyond the happy path, three key edge cases were identified and designed for to ensure the flow remained robust and user-friendly under unexpected conditions: an invalid OTP entry, a network error during verification, and an expired code. Each case was accounted for with clear feedback and recovery options, so users always knew what went wrong and how to proceed.</p>
-
-      <img src="images/rock-wallet/settings-flows/24hr-cooldown-in-progress.webp" alt="24hr cooldown in progress" class="img-full" />
-
       <p class="subsection-title">Compliance Requirement — 24-Hour Cooldown</p>
       <p class="section-body">A 24-hour cooldown is a compliance requirement enforced after a successful email update — during this window, users are restricted from sending or withdrawing funds off-platform. As a designer, it was important to balance this business and compliance requirement with a clear, honest user experience. Rather than surfacing the restriction only after the fact, the design proactively communicates the cooldown at two touchpoints — an inline notification and a pre-confirmation bottom sheet — so users can make an informed decision before committing to the update.</p>
-
-      <img src="images/rock-wallet/settings-flows/Email-happy-path.webp" alt="Email happy path" class="img-full" />
+      <img src="images/rock-wallet/settings-flows/24hr-cooldown-in-progress.webp" alt="24hr cooldown in progress" class="img-full" />
     </div>
 
     <!-- OUTCOMES EMAIL -->
@@ -345,6 +337,7 @@
       <p class="section-label">Outcomes</p>
       <p class="section-body">The email update and verification flow replaced a fragmented, support-dependent process with a secure, self-serve experience — one that respects both user autonomy and compliance requirements. Every design decision, from the scalable entry point to the layered cooldown communication and consistent OTP patterns, was made with the goal of giving users confidence and clarity at every step.</p>
       <p class="section-body">This flow laid a solid foundation for future Settings features, including phone number and address updates, establishing a consistent pattern that can be extended as the product continues to grow.</p>
+      <img src="images/rock-wallet/settings-flows/Email-happy-path.webp" alt="Email happy path" class="img-full" />
     </div>
 
     <hr class="flow-divider" />
@@ -388,11 +381,10 @@
     <div class="section">
       <p class="section-label">Design Process — A selection of key design decisions that shaped the flow.</p>
 
-      <img src="images/rock-wallet/settings-flows/Phone-empty-state-level-1.webp" alt="Phone empty state for Level 1" class="img-full" />
-
       <p class="subsection-title">Handling Empty State — Level 1</p>
       <p class="section-body">Since phone number is not mandatory during onboarding, the design had to carefully account for users who had never added one. Users are defined by two verification levels: Level 1 (unverified) and Level 2 (verified). Only Level 2 users are permitted to make account changes — a business and compliance requirement.</p>
       <p class="section-body">For Level 1 users, an empty state was designed to handle the case where no phone number exists on the account. When a Level 1 user taps "Unlock Level 2," they are prompted to add and verify their phone number as part of the upgrade flow — turning the empty state into a natural entry point for verification rather than a dead end.</p>
+      <img src="images/rock-wallet/settings-flows/Phone-empty-state-level-1.webp" alt="Phone empty state for Level 1" class="img-full" />
 
       <p class="subsection-title">Sumsub Verification Flow</p>
       <p class="section-body">The Sumsub verification flow works in two distinct layers:</p>
@@ -402,9 +394,6 @@
       </ul>
       <p class="section-body">From a UI perspective, there is one user-facing outcome: OTP passes → phone number updated and verified. This informed the design decision to keep the flow simple and linear.</p>
 
-      <img src="images/rock-wallet/settings-flows/Phone-edge-cases.webp" alt="Phone edge cases" class="img-full" />
-
-      <p class="subsection-title">Defining Edge Cases Around Sumsub's OTP Result</p>
       <p class="section-body">Once a user passes OTP verification via Sumsub, the phone number is updated regardless of the risk assessment result — whether Sumsub returns Green, Yellow, or Red. Risk flags are handled internally by Sumsub and reviewed manually by the Compliance team when needed. This is a deliberate business and compliance decision, and as a designer, it was important to reflect this accurately in the flow — the user always sees a successful outcome if OTP passes.</p>
       <p class="section-body">However, if OTP verification fails, the phone number cannot be added or updated. Three edge cases were identified and designed for:</p>
       <ul class="section-list">
@@ -412,7 +401,7 @@
         <li><strong>Connectivity or signal issue</strong> — interruption during the verification process</li>
         <li><strong>Expired OTP</strong> — code timed out before the user could complete verification</li>
       </ul>
-
+      <img src="images/rock-wallet/settings-flows/Phone-edge-cases.webp" alt="Phone edge cases" class="img-full" />
       <img src="images/rock-wallet/settings-flows/Phone-sumsub-results.webp" alt="Phone Sumsub results" class="img-full" />
     </div>
 
@@ -470,30 +459,25 @@
     <div class="section">
       <p class="section-label">Design Process — A selection of key design decisions that shaped the flow.</p>
 
-      <img src="images/rock-wallet/settings-flows/Address-empty-state-level-1.webp" alt="Address empty state for Level 1" class="img-full" />
-
       <p class="subsection-title">Handling Empty State — Level 1</p>
       <p class="section-body">Since address is not mandatory during onboarding, the design had to carefully account for users who had never added one. For Level 1 users, an empty state was designed to handle the case where no address exists on the account. When a Level 1 user taps "Unlock Level 2," they are prompted to add and verify their address as part of the upgrade flow — turning the empty state into a natural entry point for verification rather than a dead end.</p>
-
-      <img src="images/rock-wallet/settings-flows/Address-bottomsheet.webp" alt="Address pre-confirmation bottom sheet" class="img-full" />
+      <img src="images/rock-wallet/settings-flows/Address-empty-state-level-1.webp" alt="Address empty state for Level 1" class="img-full" />
 
       <p class="subsection-title">Pre-Confirmation Bottom Sheet</p>
       <p class="section-body">Before entering the address update flow, a bottom sheet appears as a pre-confirmation step — informing users that updating their address may affect their access to certain services within the app. This is a compliance and business requirement: since address drives jurisdiction logic, users need to understand the potential downstream impact before committing to the change.</p>
       <p class="section-body">A "Learn more" link is included, directing users to documentation explaining which features are available by country or region — giving users the context they need to make an informed decision without interrupting the flow itself.</p>
-
-      <img src="images/rock-wallet/settings-flows/Address-after-sumsub-validation.webp" alt="Address after Sumsub validation" class="img-full" />
+      <img src="images/rock-wallet/settings-flows/Address-bottomsheet.webp" alt="Address pre-confirmation bottom sheet" class="img-full" />
 
       <p class="subsection-title">Post-Submission: Sumsub Validation & Jurisdiction Re-evaluation</p>
       <p class="section-body">Once the user submits their new address, Sumsub validates that the address is real and properly formatted, then syncs the data and returns either a success or failure result. <strong>This is where Sumsub's role ends — it handles address validation and data sync only, not jurisdiction logic.</strong></p>
       <p class="section-body">The jurisdiction re-evaluation is entirely owned by RockWallet. Once Sumsub returns a successful result and the address is saved to the user record, the backend independently maps the address into one of seven geolocation categories — each defining what features the user can access within the app. These categories are business-defined, not Sumsub-defined.</p>
       <p class="section-body">If validation fails — due to a network issue, connectivity problem, or other edge case — the address is not updated and the user is informed with a clear error state and a path to retry.</p>
-
-      <img src="images/rock-wallet/settings-flows/Address-account-disabled.webp" alt="Account disabled flow" class="img-full" />
+      <img src="images/rock-wallet/settings-flows/Address-after-sumsub-validation.webp" alt="Address after Sumsub validation" class="img-full" />
 
       <p class="subsection-title">Category 6 — Account Disabled</p>
       <p class="section-body">If the submitted address maps to a Category 6 prohibited country, the account is fully disabled — this is a compliance requirement. Rather than designing a new flow, this outcome reuses the existing account-disabled experience already established in the product, ensuring consistency and reducing build effort.</p>
       <p class="section-body">The only available action is to close the app. On reopening, the user remains on the same blocked screen — they cannot bypass or retry. If they believe this is a mistake, they are directed to contact support.</p>
-
+      <img src="images/rock-wallet/settings-flows/Address-account-disabled.webp" alt="Account disabled flow" class="img-full" />
       <img src="images/rock-wallet/settings-flows/Address-updated.webp" alt="Address updated and cannot update" class="img-full" />
     </div>
 
