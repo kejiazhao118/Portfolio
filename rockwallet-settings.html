@@ -163,6 +163,10 @@
       margin-top: 4rem;
     }
 
+    .section-label + .subsection-title {
+      margin-top: 1.25rem;
+    }
+
     /* ── LIST ── */
     .section-list {
       font-size: 0.95rem;
@@ -176,7 +180,7 @@
     .section-list li strong { color: #111; }
 
     /* ── IMAGES ── */
-    .img-full { width: 100%; display: block; margin: 1.5rem 0 3.5rem 0; }
+    .img-full { width: 100%; display: block; margin: 1.5rem 0; }
 
     .img-grid-2 {
       display: grid;
@@ -196,11 +200,9 @@
     }
 
     /* ── FLOW DIVIDER ── */
-    .flow-divider {
-      border: none;
-      border-top: 1px solid #e8e8e8;
-      margin: 3rem 0;
-    }
+    .flow-divider { border: none; border-top: 1px solid #e8e8e8; margin: 3rem 0; }
+
+    .flow-title { margin-bottom: 2rem; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -255,8 +257,8 @@
     <!-- FLOW 1: EMAIL -->
     <!-- ============================================================ -->
 
-    <div class="section">
-      <p class="section-label">Settings — Update and Verify Email</p>
+    <div class="section flow-title">
+      <p style="font-size: 1.1rem; font-weight: 700; color: #111;">Settings — Update and Verify Email</p>
     </div>
 
     <!-- OVERVIEW -->
@@ -346,8 +348,8 @@
     <!-- FLOW 2: PHONE -->
     <!-- ============================================================ -->
 
-    <div class="section">
-      <p class="section-label">Settings — Update and Verify Phone Number</p>
+    <div class="section flow-title">
+      <p style="font-size: 1.1rem; font-weight: 700; color: #111;">Settings — Update and Verify Phone Number</p>
     </div>
 
     <!-- OVERVIEW -->
@@ -417,8 +419,8 @@
     <!-- FLOW 3: ADDRESS -->
     <!-- ============================================================ -->
 
-    <div class="section">
-      <p class="section-label">Settings — Update Address</p>
+    <div class="section flow-title">
+      <p style="font-size: 1.1rem; font-weight: 700; color: #111;">Settings — Update Address</p>
     </div>
 
     <!-- OVERVIEW -->
