@@ -238,6 +238,12 @@
     <h1 class="case-title">Gift Card Redemption Flow</h1>
     <p class="case-subtitle">Bridging physical retail and digital crypto — a gift card redemption flow designed for both first-time and returning RockWallet users.</p>
 
+<!-- NOTE -->
+    <div class="section">
+      <p class="section-label">Note</p>
+      <p class="section-body">RockWallet defines seven geolocation categories based on a user's region, each determining which features they can access within the app. Gift card redemption is exclusively available to Category 1 users — those located in permitted US states.</p>
+    </div>
+
     <img src="images/rock-wallet/gift-card-redemption/Cover.webp" alt="Gift Card Redemption Flow" class="case-cover" />
 
     <!-- OVERVIEW -->
@@ -269,9 +275,10 @@
       <p class="section-body">The key design challenge was bridging the gap between a familiar retail expectation and the additional requirements specific to a crypto product — geolocation gating, compliance limits, GPS prompting, and new user onboarding — without making the flow feel more complex than a standard gift card redemption.</p>
     </div>
 
-    <!-- ENTRY POINT & ACCESS RULES -->
+    <!-- DESIGN PROCESS + ENTRY POINT -->
     <div class="section">
-      <p class="section-label">Entry Point & Access Rules</p>
+      <p class="section-label" style="margin-top: 2.5rem;">Design Process — A selection of key design decisions that shaped the flow.</p>
+      <p class="subsection-title">Entry Point & Access Rules</p>
       <p class="section-body">The gift card redemption flow begins with a physical action — the user scans the QR code on the back of the gift card, which launches the redemption flow directly. Users can also access the flow through the profile drawer within the app.</p>
       <p class="section-body">Access to the gift card redemption flow is governed by the following rules:</p>
       <ul class="section-list">
@@ -283,16 +290,9 @@
 
       <img src="images/rock-wallet/gift-card-redemption/Entry-point.webp" alt="Entry Point and Access Rules" class="img-full" />
     </div>
-
-    <!-- NOTE -->
-    <div class="section">
-      <p class="section-label">Note</p>
-      <p class="section-body">RockWallet defines seven geolocation categories based on a user's region, each determining which features they can access within the app. Gift card redemption is exclusively available to Category 1 users — those located in permitted US states.</p>
-    </div>
-
     <!-- NEW USERS -->
     <div class="section">
-      <p class="section-label">New User Flow — Onboarding to Redemption</p>
+      <p class="subsection-title">New User Flow — Onboarding to Redemption</p>
       <p class="section-body">For users who do not yet have a RockWallet account, the QR code scan becomes the starting point for their entire onboarding journey. New users are routed through the sign-up and KYC process before accessing the redemption flow — but the gift card context is never lost. Once KYC is successfully completed, users are taken directly back to the gift card redemption flow, so they can complete their redemption without having to find their way back manually.</p>
       <p class="section-body">If the user's geolocation maps to a non-Category 1 region during onboarding, they will be informed that gift card redemption is not available in their area — and the "Gift Cards" option will not be visible in the profile drawer.</p>
       <p class="section-body">If KYC fails, a dedicated screen informs the user that gift card redemption is not available — clearly communicating that the verification did not go through and directing them to contact support for further assistance.</p>
@@ -305,11 +305,13 @@
       </ul>
 
       <img src="images/rock-wallet/gift-card-redemption/New-users.webp" alt="New User Flow" class="img-full" />
+      <img src="images/rock-wallet/gift-card-redemption/New-users-geo-mapping.webp" alt="New Users Geo Mapping" class="img-full" />
+      <img src="images/rock-wallet/gift-card-redemption/New-users-KYC.webp" alt="New Users KYC" class="img-full" />
     </div>
 
     <!-- EXISTING USERS -->
     <div class="section">
-      <p class="section-label">Existing Users — Entry & KYC Gating</p>
+      <p class="subsection-title">Existing Users — Entry & KYC Gating</p>
       <p class="section-body">For existing RockWallet users, the gift card redemption flow can be accessed by scanning the QR code on the physical card or through the "Gift Cards" option in the profile drawer. Three user states are handled at the point of entry:</p>
       <ul class="section-list">
         <li><strong>Non-Category 1 user</strong> — the user is outside a permitted US state. The "Gift Cards" feature is not visible in the profile drawer and the user cannot access the redemption flow</li>
@@ -318,11 +320,12 @@
       </ul>
 
       <img src="images/rock-wallet/gift-card-redemption/Existing-users.webp" alt="Existing Users Flow" class="img-full" />
+      <img src="images/rock-wallet/gift-card-redemption/Existing-users-types.webp" alt="Existing Users Types" class="img-full" />
     </div>
 
     <!-- NON-CATEGORY 1 -->
     <div class="section">
-      <p class="section-label">Non-Category 1 Users — Access Restricted</p>
+      <p class="subsection-title">Non-Category 1 Users — Access Restricted</p>
       <p class="section-body">For existing users who are verified (Level 2) but not mapped to Category 1, scanning the QR code on the physical gift card will surface a dedicated "Redemption not available" screen — clearly explaining why the feature is inaccessible.</p>
       <p class="section-body">The same applies during onboarding: if a new user's geolocation does not map to Category 1, or if their KYC result does not place them in Category 1, they cannot proceed with gift card redemption. In all cases, a dedicated screen appears to inform the user of the restriction — ensuring they always understand why the feature is unavailable rather than encountering a dead end with no explanation.</p>
 
@@ -331,7 +334,7 @@
 
     <!-- CATEGORY 1 + LEVEL 1 -->
     <div class="section">
-      <p class="section-label">Category 1 + Level 1 User — KYC Required</p>
+      <p class="subsection-title">Category 1 + Level 1 User — KYC Required</p>
       <p class="section-body">Gift card redemption is gated behind KYC Level 2. For existing users who are in Category 1 but have not yet completed verification, the flow routes them into the existing Level 2 KYC process before they can proceed. Once KYC is approved, the user is returned directly to the gift card redemption flow — the context is never lost. If KYC is rejected, a dedicated screen appears to inform the user that the feature is unavailable, ensuring they always have a clear understanding of their status rather than hitting an unexplained dead end.</p>
 
       <img src="images/rock-wallet/gift-card-redemption/Category-1-level-1.webp" alt="Category 1 Level 1 KYC Required" class="img-full" />
@@ -339,7 +342,7 @@
 
     <!-- ENABLING GPS -->
     <div class="section">
-      <p class="section-label">Enabling GPS — Location Verification</p>
+      <p class="subsection-title">Enabling GPS — Location Verification</p>
       <p class="section-body">Since RockWallet does not currently have native geo-blocking or a third-party geolocation service integrated for this flow, GPS was proposed as the solution for location verification — as gift card redemption is only available in permitted US states, confirming the user's physical location at the point of redemption was a necessary compliance requirement.</p>
       <p class="section-body">When a user attempts to access the gift card redemption flow, the app checks whether location permissions have been granted. If GPS is not enabled, a dedicated screen prompts the user to turn on their device's location services and return to the app to continue.</p>
       <p class="section-body">This is a temporary solution that allows the product to launch with location-based access controls in place — while a more robust geo-blocking solution is being developed in parallel by another team. Once the geo-blocking approach is confirmed, the design will be revisited and iterated to replace the manual GPS prompt with a seamless, native location verification experience.</p>
@@ -349,7 +352,7 @@
 
     <!-- START REDEMPTION -->
     <div class="section">
-      <p class="section-label">Start Redemption — Post-GPS & Anti-Scam</p>
+      <p class="subsection-title">Start Redemption — Post-GPS & Anti-Scam</p>
       <p class="section-body">Once GPS is enabled and the user returns to the app, they are brought into the redemption flow. A key open question at this stage was whether users who manually enable GPS in their phone settings could return directly to this screen — rather than having to scan the QR code again from the beginning. This is a technical feasibility question flagged for the development team to confirm before launch.</p>
       <p class="section-body">Before proceeding with the redemption, the standard anti-scam page is presented — consistent with the anti-scam language used across the product. This is a compliance requirement ensuring users are aware of potential scam risks before redeeming a gift card. The same pattern is reused here to maintain consistency and reduce build effort.</p>
 
@@ -358,7 +361,7 @@
 
     <!-- CAMERA ACCESS -->
     <div class="section">
-      <p class="section-label">Camera Access & Code Scanning</p>
+      <p class="subsection-title">Camera Access & Code Scanning</p>
       <p class="section-body">The next step requires camera access to scan the gift card code. Three states are handled at this point:</p>
       <ul class="section-list">
         <li><strong>Camera access granted (happy path)</strong> — the user scans the gift card code directly using their camera, the code is read, and the flow continues</li>
@@ -372,7 +375,7 @@
 
     <!-- REDEMPTION LIMITS -->
     <div class="section">
-      <p class="section-label">Redemption Limits</p>
+      <p class="subsection-title">Redemption Limits</p>
       <p class="section-body">Gift card redemption is subject to compliance-defined limits: $500 per day and $2,000 per year, per customer. The limit check happens at the start of the flow — if a user has already reached their daily or annual limit, they are informed before proceeding. If the annual limit is exceeded, a due diligence review is required before further redemptions can be made.</p>
       <p class="section-body">To keep the flow lightweight, a single screen is used to cover all limit-reached scenarios — whether the user has hit the daily or annual cap. Rather than designing separate states for each case, one clear, informative screen handles all limit types, reducing complexity without sacrificing clarity.</p>
 
@@ -381,17 +384,20 @@
 
     <!-- HAPPY PATH -->
     <div class="section">
-      <p class="section-label">Happy Path</p>
+      <p class="subsection-title">Happy Path</p>
       <p class="section-body">Once the gift card is scanned successfully, the redemption flow begins. Due to the nature of blockchain technology, loading the redeemed amount into the app may take a moment — users will see a loading state when they swipe to redeem, ensuring they're informed that the process is in progress rather than encountering an unexplained delay.</p>
       <p class="section-body">A step progress tracker is used in the final step of the flow to give users a clear sense of where they are in the redemption process. The four steps were defined by the PM and Compliance team to reflect the actual requirements of a crypto gift card redemption.</p>
       <p class="section-body">The step progress component already existed in the design system — making it a natural choice to reuse. This was a deliberate design decision that balanced stakeholder requirements, development effort, and user experience. Rather than building from scratch, reusing the existing component kept implementation efficient while still delivering a clear, guided experience for the user. Minor iterations were made where needed to best fit the redemption context, without introducing unnecessary build effort.</p>
 
       <img src="images/rock-wallet/gift-card-redemption/Happy-path.webp" alt="Happy Path" class="img-full" />
+      <img src="images/rock-wallet/gift-card-redemption/Gift-card-swipe.webp" alt="Gift Card Swipe" class="img-full" />
+      <img src="images/rock-wallet/gift-card-redemption/Transaction-in-progress.webp" alt="Transaction In Progress" class="img-full" />
+      <img src="images/rock-wallet/gift-card-redemption/Gift-card-redeem-in-progress.webp" alt="Gift Card Redeem In Progress" class="img-full" />
     </div>
 
     <!-- PRICE QUOTE REFRESH -->
     <div class="section">
-      <p class="section-label">Price Quote Refresh</p>
+      <p class="subsection-title">Price Quote Refresh</p>
       <p class="section-body">If the user switches between entering a fiat or asset amount, all dependent values — including the amount to be sold and the received value — update automatically. To avoid last-second changes, the slider is disabled when 5 seconds remain on the quote timer. Since this is a confirmation screen, feedback is kept subtle and reassuring: updated values are highlighted with a temporary color change, and a toast message confirms the refresh without disrupting the flow. The update logic always follows the user's primary input — if the user entered $100, that number stays fixed; if they entered 0.002352342 BTC, that stays fixed instead. The anchor is always what the user typed.</p>
 
       <img src="images/rock-wallet/gift-card-redemption/Price-quote-refresh.webp" alt="Price Quote Refresh" class="img-full" />
@@ -399,7 +405,7 @@
 
     <!-- EDGE CASES -->
     <div class="section">
-      <p class="section-label">Edge Cases</p>
+      <p class="subsection-title">Edge Cases</p>
       <p class="section-body">Defining edge cases is an essential part of every flow — as a designer, anticipating failure states and designing clear recovery paths prevents dead ends and protects the overall user experience.</p>
       <p class="section-body">To keep the flow lightweight while ensuring all scenarios are handled, three edge case states were defined:</p>
       <ul class="section-list">
