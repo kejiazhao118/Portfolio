@@ -492,6 +492,41 @@
       <p class="section-body">The most complex design challenge was communicating potential jurisdiction impact without creating unnecessary friction or alarming users — resolved through the pre-confirmation bottom sheet and clear post-submission states. The patterns established here are consistent with the email and phone flows, reinforcing a unified self-serve account management system that can scale to future account attribute changes.</p>
     </div>
 
+    <hr class="flow-divider" />
+
+    <!-- DESIGN CHALLENGES -->
+    <div class="section">
+      <p class="section-label">Design Challenges</p>
+      <p class="section-body">The Settings flows presented a consistent underlying challenge across all three: designing self-serve account management experiences that felt simple and familiar to users, while quietly handling a significant amount of compliance and technical complexity underneath.</p>
+      <p class="section-body">Each flow came with its own distinct constraint. The email flow required designing around a 24-hour cooldown — a compliance requirement that needed to be communicated proactively without alarming users or disrupting the update process. The phone flow introduced a third-party SDK dependency, meaning key screens and interactions were owned by Sumsub rather than RockWallet — requiring the design to work around what the SDK owned while still delivering a coherent experience. The address flow added another layer: a self-reported field tied to silent jurisdiction re-evaluation, where updating an address could change a user's feature access without any visible verification step.</p>
+      <p class="section-body">Across all three flows, designing consistent empty states for Level 1 users and ensuring each flow felt unified despite their technical differences required careful attention to pattern reuse and design system consistency.</p>
+    </div>
+
+    <!-- COLLABORATION -->
+    <div class="section">
+      <p class="section-label">Collaboration</p>
+      <p class="section-body">All three Settings flows were delivered in close collaboration with the PM, following individual PRDs for each feature. Compliance requirements — including the 24-hour cooldown, OTP resend limits, jurisdiction categories, and KYC gating — were confirmed through stakeholder meetings and alignment calls before design began.</p>
+      <p class="section-body">Working with engineers was central to keeping the flows efficient. Reusing existing design system components — the bottom sheet, OTP screens from onboarding, and the account-disabled flow — reduced build effort across all three flows without sacrificing consistency. Design decisions were presented in stakeholder meetings, where concerns were raised, business requirements were balanced against user needs, and feasible solutions were agreed upon before moving to high-fidelity screens.</p>
+    </div>
+
+    <!-- WHAT'S NEXT -->
+    <div class="section">
+      <p class="section-label">What's Next</p>
+      <p class="section-body">The three Settings flows delivered for the 2.0 launch were designed as a foundation — not a final state. Several items were explicitly deferred during the design process and are planned for future iterations:</p>
+      <ul class="section-list">
+        <li><strong>Native geo-blocking</strong> — the current GPS prompt is a temporary solution. Once the geo-blocking infrastructure is confirmed, the location verification experience will be revisited and redesigned to be seamless and native</li>
+        <li><strong>2FA integration</strong> — the phone number collected and verified through the Settings flow will serve as the foundation for two-factor authentication, a future workstream that builds directly on this feature</li>
+        <li><strong>Design system improvements</strong> — the disabled state contrast issue flagged during the email flow design will be addressed as a broader design system update, improving legibility across the product</li>
+        <li><strong>Session resume</strong> — if a user abandons mid-flow, they currently restart from the beginning. A future iteration could introduce session resume behaviour to reduce friction for users who are interrupted mid-verification</li>
+        <li><strong>Mandatory phone verification at onboarding</strong> — enforcing phone number collection and OTP verification as a required step at Level 2 KYC onboarding is an active consideration, building on the patterns established in the phone update flow</li>
+      </ul>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="section">
+      <p class="section-body">The Settings flows were some of the most technically constrained work I've done — and some of the most rewarding. Designing within strict compliance requirements, third-party SDK limitations, and existing component boundaries pushed me to think more creatively about what good design looks like when the canvas isn't blank. The result is a product experience that feels simple to the user, even when nothing about building it was.</p>
+    </div>
+
     <!-- BACK LINK -->
     <div style="padding: 0;">
       <a href="rockwallet.html" class="back-link">← Back to RockWallet</a>
