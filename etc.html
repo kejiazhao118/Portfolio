@@ -99,17 +99,17 @@
     /* ── GRID ── */
     .projects {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 4rem;
       align-items: start;
     }
 
-    .col-right { padding-top: 3rem; }
+    .col-right { padding-top: 10rem; }
 
     .col-left, .col-right {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 3.5rem;
     }
 
     /* ── PROJECT CARD ── */
