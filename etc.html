@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Etc. — AVISS KEJIA ZHAO</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet"/>
-  <style id="konstant-font">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <style>
     @font-face {
       font-family: "Konstant Grotesk";
       src: url("KonstantGrotesk.otf") format("opentype");
       font-weight: bold;
       font-style: normal;
     }
-  </style>
-  <style>
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -33,8 +32,7 @@
       min-width: 300px;
       padding: 2.5rem 1.5rem 2.5rem 3.5rem;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -51,24 +49,14 @@
 
     .sidebar-name a { color: #111; }
 
-    .sidebar-title {
-      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.95rem;
-      color: #111;
-      font-weight: 400;
-      line-height: 1.5;
-      margin-bottom: 2.5rem;
-      margin-top: -1.5rem;
-    }
-
     nav {
       display: flex;
       flex-direction: column;
-      gap: 0.15rem; margin-top: 2rem;
+      gap: 0.15rem;
+      margin-top: 2rem;
     }
 
     nav a {
-      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 1rem;
       font-weight: 400;
       color: #111;
@@ -78,12 +66,10 @@
 
     nav a.active { color: hsl(9, 63%, 65%); font-weight: 700; }
     nav a.nav-bold { font-weight: 700; }
-    nav a:hover { color: hsl(9, 63%, 65%); }
-
-    nav .nav-gap { margin-top: 1.25rem; }
     nav a.nav-small { font-size: 0.95rem; }
+    nav a:hover { color: hsl(9, 63%, 65%); }
+    nav .nav-gap { margin-top: 1.25rem; }
 
-    /* ── SOCIAL ICONS ── */
     .sidebar-social {
       margin-top: auto;
       display: flex;
@@ -103,41 +89,39 @@
 
     .sidebar-social a:hover { color: hsl(9, 63%, 65%); }
 
-    /* ── MAIN CONTENT ── */
+    /* ── MAIN ── */
     main {
       margin-left: 300px;
       flex: 1;
-      padding: 2.5rem 3rem 4rem 2.5rem;
+      padding: 4rem 3rem 6rem 4rem;
     }
 
-    /* ── STAGGERED TWO-COLUMN LAYOUT ── */
+    /* ── GRID ── */
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 4rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
       align-items: start;
     }
 
-    /* right column offset downward to create stagger */
-    .col-right {
-      padding-top: 10rem;
-    }
+    .col-right { padding-top: 3rem; }
 
     .col-left, .col-right {
       display: flex;
       flex-direction: column;
-      gap: 3.5rem;
+      gap: 2rem;
     }
 
-    .project { display: block; }
-    a.project { cursor: pointer; }
-    div.project { cursor: default; }
+    /* ── PROJECT CARD ── */
+    .project {
+      display: block;
+      cursor: default;
+    }
 
     .project-thumb {
-      width: 100%;
       overflow: hidden;
-      margin-bottom: 1rem;
       background: #f4f4f4;
+      margin-bottom: 0.75rem;
     }
 
     .col-left .project-thumb  { aspect-ratio: unset; }
@@ -145,53 +129,31 @@
 
     .project-thumb img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
       transition: transform 0.3s ease;
     }
 
     .project:hover .project-thumb img { transform: scale(1.02); }
 
-    .project-thumb-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f4f4f4;
-      color: #bbb;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-
     .project-title {
-      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
-      margin-bottom: 0.4rem;
       color: #111;
+      margin-bottom: 0.2rem;
     }
 
     .project-tags {
-      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 0.85rem;
-      color: #555;
-      font-weight: 400;
-      line-height: 1.5;
-      font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+      color: #888;
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       body { flex-direction: column; }
       .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
+        position: relative; width: 100%; height: auto;
         padding: 2rem 2rem 1.5rem 2.5rem;
-        flex-direction: column;
-        border-bottom: 1px solid #eee;
+        flex-direction: column; border-bottom: 1px solid #eee;
       }
       .sidebar-name { margin-bottom: 2rem; }
       .sidebar-social { margin-top: 2rem; }
@@ -207,19 +169,15 @@
     <div class="sidebar-name">
       <a href="index.html">AVISS KEJIA<br/>ZHAO</a>
     </div>
-
     <nav>
       <a href="index.html" class="nav-bold">Work</a>
       <a href="resume.pdf" target="_blank" class="nav-bold">CV</a>
       <a href="about.html" class="nav-gap nav-small">About</a>
       <a href="etc.html" class="active nav-small">Etc.</a>
     </nav>
-
     <div class="sidebar-social">
       <a href="https://www.linkedin.com/in/aviss-k-zhao-4834823b/" target="_blank" aria-label="LinkedIn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/>
-        </svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg>
       </a>
       <a href="https://www.instagram.com/avisszhao/" target="_blank" aria-label="Instagram">
         <i class="bi bi-instagram" style="font-size:20px;"></i>
@@ -242,7 +200,7 @@
           </div>
           <div class="project-title">3D Chess Modelling</div>
           <div class="project-tags">3D Modelling, 3D Design</div>
-        </a>
+        </div>
 
         <div class="project">
           <div class="project-thumb">
@@ -250,7 +208,7 @@
           </div>
           <div class="project-title">Infographic — Timeline</div>
           <div class="project-tags">Information Design, Visual Design, Data Visualization</div>
-        </a>
+        </div>
 
         <div class="project">
           <div class="project-thumb">
@@ -258,7 +216,7 @@
           </div>
           <div class="project-title">Illustration</div>
           <div class="project-tags">Illustration, Digital Drawing</div>
-        </a>
+        </div>
 
         <div class="project">
           <div class="project-thumb">
@@ -266,7 +224,7 @@
           </div>
           <div class="project-title">Freelance — Wedding Logo "Piano & Violin"</div>
           <div class="project-tags">Graphic Design</div>
-        </a>
+        </div>
 
         <div class="project">
           <div class="project-thumb">
@@ -278,7 +236,7 @@
 
       </div>
 
-      <!-- RIGHT COLUMN (offset down) -->
+      <!-- RIGHT COLUMN -->
       <div class="col-right">
 
         <div class="project">
@@ -295,7 +253,7 @@
           </div>
           <div class="project-title">Tech Drawing</div>
           <div class="project-tags">Technical Drawing, Design</div>
-        </a>
+        </div>
 
         <div class="project">
           <div class="project-thumb">
@@ -319,7 +277,7 @@
           </div>
           <div class="project-title">Freelance — Banner Design for Yesbit Technology Ltd.</div>
           <div class="project-tags">Graphic Design</div>
-        </a>
+        </div>
 
       </div>
 
